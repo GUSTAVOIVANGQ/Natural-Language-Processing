@@ -1,196 +1,126 @@
 import re
 import csv
-import os
 
-class BibTexRisConverter:
-    def __init__(self, tag_equivalence_file):
-        # Load tag equivalences from CSV
-        self.bibtex_to_ris = {}  # Maps BibTeX fields to RIS tags
-        self.ris_to_bibtex = {}  # Maps RIS tags to BibTeX fields
-        self.entry_types = {}    # Maps BibTeX entry types to RIS types
-        self.ris_entry_types = {} # Maps RIS types to BibTeX entry types
-        
-        with open(tag_equivalence_file, 'r', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                if row['Type'] == 'Field':
-                    bibtex_field = row['BibTeX Field'].strip()
-                    ris_tag = row['RIS Tag'].strip()
-                    self.bibtex_to_ris[bibtex_field] = ris_tag
-                    self.ris_to_bibtex[ris_tag] = bibtex_field
-                elif row['Type'] == 'Entry Type':
-                    bibtex_type = row['BibTeX Field'].strip()
-                    ris_type = row['RIS Tag'].strip()
-                    self.entry_types[bibtex_type.replace('@', '')] = ris_type
-                    self.ris_entry_types[ris_type] = bibtex_type.replace('@', '')
-    
-    def bibtex_to_ris_convert(self, bibtex_content):
-        """Convert BibTeX content to RIS format"""
-        # Extract each BibTeX entry
-        entries = re.findall(r'@(\w+)\{(.*?),\s*(.*?)\s*\}', bibtex_content, re.DOTALL)
-        
-        ris_output = []
-        
-        for entry_type, citation_key, fields_text in entries:
-            # Start with the entry type
-            ris_entry = []
-            if entry_type.lower() in self.entry_types:
-                ris_entry.append(f"TY  - {self.entry_types[entry_type.lower()]}")
-            else:
-                ris_entry.append(f"TY  - JOUR")  # Default to journal if type not found
-            
-            # Add the citation key as ID
-            ris_entry.append(f"ID  - {citation_key}")
-            
-            # Extract and convert each field
-            fields = re.findall(r'(\w+)\s*=\s*\{(.*?)\}(?:,|\s*$)', fields_text, re.DOTALL)
-            
-            for field_name, field_value in fields:
-                field_name = field_name.lower()
-                
-                if field_name == 'pages':
-                    # Handle pages special case (split into SP and EP)
-                    pages = re.split(r'[-–—]', field_value)
-                    if len(pages) >= 1:
-                        ris_entry.append(f"SP  - {pages[0].strip()}")
-                    if len(pages) >= 2:
-                        ris_entry.append(f"EP  - {pages[1].strip()}")
-                elif field_name == 'author' or field_name == 'editor':
-                    # Split authors by 'and'
-                    authors = [author.strip() for author in re.split(r'\s+and\s+', field_value)]
-                    ris_tag = self.bibtex_to_ris.get(field_name, field_name.upper())
+# Define tag equivalences
+tag_equivalences = {}
+with open('tag_equivalence.csv', mode='r', encoding='utf-8') as infile:
+    reader = csv.DictReader(infile)
+    for row in reader:
+        if row['Type'] == 'Field':
+            tag_equivalences[row['BibTeX Field']] = row['RIS Tag']
+        elif row['Type'] == 'Entry Type':
+            tag_equivalences[row['BibTeX Field']] = row['RIS Tag']
+
+def parse_bibtex(bibtex_str):
+    entries = re.split(r'@\w+\{', bibtex_str)[1:]
+    parsed_entries = []
+    for entry in entries:
+        entry_type = re.search(r'^(\w+)', entry).group(1)
+        entry_content = re.search(r'\{(.+?),\s*(.+)\}', entry, re.DOTALL)
+        entry_id = entry_content.group(1)
+        fields_str = entry_content.group(2).strip()
+        fields = re.findall(r'(\w+)\s*=\s*\{(.+?)\}', fields_str, re.DOTALL)
+        parsed_entry = {'type': entry_type, 'id': entry_id, 'fields': dict(fields)}
+        parsed_entries.append(parsed_entry)
+    return parsed_entries
+
+def parse_ris(ris_str):
+    entries = ris_str.strip().split('ER  - ')
+    parsed_entries = []
+    for entry in entries:
+        if entry.strip():
+            lines = entry.strip().split('\n')
+            entry_type = ''
+            entry_id = ''
+            fields = {}
+            for line in lines:
+                if line.startswith('TY  - '):
+                    entry_type = line[6:]
+                elif line.startswith('ID  - '):
+                    entry_id = line[6:]
+                else:
+                    tag = line[:2]
+                    value = line[6:]
+                    fields[tag] = fields.get(tag, '') + value
+            parsed_entry = {'type': entry_type, 'id': entry_id, 'fields': fields}
+            parsed_entries.append(parsed_entry)
+    return parsed_entries
+
+def bibtex_to_ris(bibtex_entries):
+    ris_entries = []
+    for entry in bibtex_entries:
+        ris_entry = []
+        ris_type = tag_equivalences.get('@' + entry["type"].lower(), "GEN")  # Correctly map entry type
+        ris_entry.append(f'TY  - {ris_type}')
+        ris_entry.append(f'ID  - {entry["id"]}')
+        for field, value in entry['fields'].items():
+            ris_tag = tag_equivalences.get(field)
+            if ris_tag:
+                if ris_tag == 'AU':
+                    authors = value.split(' and ')
                     for author in authors:
-                        ris_entry.append(f"{ris_tag}  - {author}")
-                elif field_name == 'keywords':
-                    # Split keywords
-                    keywords = [kw.strip() for kw in re.split(r',', field_value)]
-                    for keyword in keywords:
-                        ris_entry.append(f"KW  - {keyword}")
+                        ris_entry.append(f'AU  - {author}')
+                elif ris_tag == 'ED':
+                    editors = value.split(' and ')
+                    for editor in editors:
+                        ris_entry.append(f'ED  - {editor}')
+                elif ris_tag == 'SP/EP':
+                    pages = value.split('--')
+                    ris_entry.append(f'SP  - {pages[0]}')
+                    if len(pages) > 1:
+                        ris_entry.append(f'EP  - {pages[1]}')
                 else:
-                    # General case
-                    ris_tag = self.bibtex_to_ris.get(field_name, field_name.upper())
-                    ris_entry.append(f"{ris_tag}  - {field_value}")
-            
-            # End of reference
-            ris_entry.append("ER  -")
-            ris_entry.append("")  # Empty line between references
-            
-            ris_output.append("\n".join(ris_entry))
-        
-        return "\n".join(ris_output)
-    
-    def ris_to_bibtex_convert(self, ris_content):
-        """Convert RIS content to BibTeX format"""
-        # Split content into separate references (blocks between TY and ER)
-        references = re.split(r'ER  -\s*', ris_content)
-        
-        bibtex_output = []
-        
-        for ref in references:
-            if not ref.strip():
-                continue
-                
-            # Extract fields
-            fields = re.findall(r'(\w+)\s*-\s*(.*?)(?:\r?\n|$)', ref)
-            
-            entry_type = "article"  # Default
-            citation_key = ""
-            bibtex_fields = []
-            
-            authors = []
-            start_page = ""
-            end_page = ""
-            
-            for tag, value in fields:
-                tag = tag.strip()
-                value = value.strip()
-                
-                if tag == "TY":
-                    # Set entry type
-                    if value in self.ris_entry_types:
-                        entry_type = self.ris_entry_types[value]
+                    ris_entry.append(f'{ris_tag}  - {value}')
+        ris_entry.append('ER  - ')
+        ris_entries.append('\n'.join(ris_entry))
+    return '\n'.join(ris_entries)
+
+def ris_to_bibtex(ris_entries):
+    bibtex_entries = []
+    for entry in ris_entries:
+        bibtex_entry = []
+        bibtex_entry.append(f'@{tag_equivalences.get(entry["type"], "misc")}{{{entry["id"]},')
+        for tag, value in entry['fields'].items():
+            bibtex_field = [key for key, val in tag_equivalences.items() if val == tag]
+            if bibtex_field:
+                if tag == 'AU':
+                    authors = value.replace(' / ', ' and ')
+                    bibtex_entry.append(f'  {bibtex_field[0]} = {{{authors}}},')
+                elif tag == 'ED':
+                    editors = value.replace(' / ', ' and ')
+                    bibtex_entry.append(f'  {bibtex_field[0]} = {{{editors}}},')
+                elif tag == 'SP' or tag == 'EP':
+                    if tag == 'SP':
+                        sp = value
                     else:
-                        entry_type = "article"  # Default
-                elif tag == "ID":
-                    citation_key = value
-                elif tag == "AU":
-                    # Collect authors
-                    authors.append(value)
-                elif tag == "SP":
-                    start_page = value
-                elif tag == "EP":
-                    end_page = value
+                        ep = value
+                        bibtex_entry.append(f'  pages = {{{sp}--{ep}}},')
                 else:
-                    # Standard field conversion
-                    if tag in self.ris_to_bibtex:
-                        bibtex_field = self.ris_to_bibtex[tag]
-                        bibtex_fields.append(f"  {bibtex_field} = {{{value}}}")
-            
-            # Process authors
-            if authors:
-                bibtex_fields.insert(0, f"  author = {{{' and '.join(authors)}}}")
-            
-            # Process pages
-            if start_page or end_page:
-                if start_page and end_page:
-                    bibtex_fields.append(f"  pages = {{{start_page}--{end_page}}}")
-                elif start_page:
-                    bibtex_fields.append(f"  pages = {{{start_page}}}")
-            
-            # Create BibTeX entry
-            bibtex_entry = [f"@{entry_type}{{{citation_key},"]
-            bibtex_entry.extend(bibtex_fields)
-            bibtex_entry.append("}")
-            
-            bibtex_output.append("\n".join(bibtex_entry))
-        
-        return "\n\n".join(bibtex_output)
-    
-    def convert_file(self, input_file, output_file=None):
-        """Convert a file from BibTeX to RIS or vice versa"""
-        file_extension = os.path.splitext(input_file)[1].lower()
-        
-        if not output_file:
-            # Generate output filename
-            if file_extension == '.bib':
-                output_file = input_file.replace('.bib', '.ris')
-            elif file_extension == '.ris':
-                output_file = input_file.replace('.ris', '.bib')
-            else:
-                output_file = input_file + '.converted'
-        
-        with open(input_file, 'r', encoding='utf-8') as f:
-            content = f.read()
-        
-        # Determine conversion direction
-        if file_extension == '.bib':
-            result = self.bibtex_to_ris_convert(content)
-        elif file_extension == '.ris':
-            result = self.ris_to_bibtex_convert(content)
-        else:
-            raise ValueError(f"Unsupported file extension: {file_extension}")
-        
-        with open(output_file, 'w', encoding='utf-8') as f:
-            f.write(result)
-        
-        return output_file
+                    bibtex_entry.append(f'  {bibtex_field[0]} = {{{value}}},')
+        bibtex_entry.append('}')
+        bibtex_entries.append('\n'.join(bibtex_entry))
+    return '\n\n'.join(bibtex_entries)
 
+def read_file(filename):
+    with open(filename, 'r', encoding='utf-8') as file:
+        return file.read()
 
-def main():
-    # Get tag equivalence file path
-    tag_file = "tag_equivalence.csv"
-    
-    converter = BibTexRisConverter(tag_file)
-    
-    # Ask for input file
-    input_file = input("Enter the input file path: ")
-    
-    try:
-        output_file = converter.convert_file(input_file)
-        print(f"Conversion successful! Output file: {output_file}")
-    except Exception as e:
-        print(f"Error during conversion: {str(e)}")
+def write_file(filename, content):
+    with open(filename, 'w', encoding='utf-8') as file:
+        file.write(content)
 
+def convert_bibtex_to_ris(input_filename, output_filename):
+    bibtex_str = read_file(input_filename)
+    bibtex_entries = parse_bibtex(bibtex_str)
+    ris_str = bibtex_to_ris(bibtex_entries)
+    write_file(output_filename, ris_str)
 
-if __name__ == "__main__":
-    main()
+def convert_ris_to_bibtex(input_filename, output_filename):
+    ris_str = read_file(input_filename)
+    ris_entries = parse_ris(ris_str)
+    bibtex_str = ris_to_bibtex(ris_entries)
+    write_file(output_filename, bibtex_str)
+
+# Example usage
+convert_bibtex_to_ris('Pruebas1/conference1.bib', 'output.ris')
+convert_ris_to_bibtex('input.ris', 'output.bib')
