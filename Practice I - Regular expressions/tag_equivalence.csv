@@ -1,0 +1,22 @@
+Type,BibTeX Field,RIS Tag,Description,Example
+Field,author,AU,Author(s) of the work.,"author = {Doe, John and Smith, Jane} → AU - Doe, John / AU - Smith, Jane"
+Field,title,TI,Title of the work.,title = {A Study of Citations} → TI - A Study of Citations
+Field,year,PY,Publication year (RIS allows `YYYY/MM/DD`).,year = {2023} → PY - 2023
+Field,volume,VL,Volume number.,volume = {15} → VL - 15
+Field,number,IS,Issue number.,number = {3} → IS - 3
+Field,pages,SP/EP,Start page (`SP`) and end page (`EP`).,pages = {123--145} → SP - 123 / EP - 145
+Field,doi,DO,Digital Object Identifier.,doi = {10.1234/abcd} → DO - 10.1234/abcd
+Field,url,UR,URL/URI.,url = {https://example.com} → UR - https://example.com
+Field,publisher,PB,Publisher name.,publisher = {Academic Press} → PB - Academic Press
+Field,journal,JO,Journal title,journal = {Revista de Ciencia Avanzada} → JO - Revista de Ciencia Avanzada
+Field,booktitle,BT,Book title (for chapters/conference papers),booktitle = {Proceedings of...} → T2 - Proceedings of…
+Field,editor,ED,Editor(s).,"editor = {Lee, Alice} → ED - Lee, Alice"
+Field,edition,ET,Edition of a book.,edition = {2nd} → ET - 2nd
+Field,keywords,KW,Keywords.,"keywords = {citation, formats} → KW - citation / KW - formats"
+Field,issn,SN,ISSN (journals) or ISBN (books).,issn = {1234-5678} → SN - 1234-5678
+Field,isbn,SN,ISBN for books (same tag as ISSN).,isbn = {978-0-123456} → SN - 978-0-123456
+Field,address,CY/PP,Publisher city (`CY`) or country (`PP`).,address = {New York} → CY - New York
+Field,abstract,AB,Abstract,abstract={Large language models (LLMs) are rapidly being adopted in healthcare.} →AB  - Large language models (LLMs) are rapidly being adopted in healthcare.
+,,ID,Reference identifier,"The identifier in BibTeX appears after the first curly brace “{”, it does not have a specif tag @article{juan2025 → ID - juan2025"
+Entry Type,@article,JOUR,Journal article.,@article → TY  - JOUR​
+Entry Type,@inproceedings,CONF,Conference paper.,@inproceedings → TY  - CONF
