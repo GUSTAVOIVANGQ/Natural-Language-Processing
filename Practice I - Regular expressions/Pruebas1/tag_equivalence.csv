@@ -17,6 +17,6 @@ Field,issn,SN,ISSN (journals) or ISBN (books).,issn = {1234-5678} → SN - 1234-
 Field,isbn,SN,ISBN for books (same tag as ISSN).,isbn = {978-0-123456} → SN - 978-0-123456
 Field,address,CY/PP,Publisher city (`CY`) or country (`PP`).,address = {New York} → CY - New York
 Field,abstract,AB,Abstract,abstract={Large language models (LLMs) are rapidly being adopted in healthcare.} →AB  - Large language models (LLMs) are rapidly being adopted in healthcare.
-,,ID,Reference identifier,"The identifier in BibTeX appears after the first curly brace “{”, it does not have a specif tag @article{juan2025 → ID - juan2025"
-Entry Type,@article,JOUR,Journal article.,@article → TY  - JOUR​
+,,ID,Reference identifier,"The identifier in BibTeX appears after the first curly brace “{”, it does not have a specific tag @article{juan2025 → ID - juan2025"
+Entry Type,@article,JOUR,Journal article.,@article → TY  - JOUR
 Entry Type,@inproceedings,CONF,Conference paper.,@inproceedings → TY  - CONF
