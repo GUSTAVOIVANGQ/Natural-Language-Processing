@@ -237,5 +237,8 @@ def convert_ris_to_bibtex(input_filename, output_filename):
     write_file(output_filename, bibtex_str)
 
 # Example usage
-convert_bibtex_to_ris('Pruebas1/journal2.bib', 'output.ris')
-convert_ris_to_bibtex('Pruebas1/journal2.ris', 'output.bib')
+#convert_bibtex_to_ris('Pruebas1/journal2.bib', 'Pruebas1Test/RIS/journal2.ris')
+#convert_ris_to_bibtex('Pruebas1/journal2.ris', 'Pruebas1Test/BibTeX/journal2.bib')
+
+convert_bibtex_to_ris('Pruebas2/BibTeX/journal_test2.bib', 'Pruebas2Test/RIS/journal_test2.ris')
+convert_ris_to_bibtex('Pruebas2/RIS/journal_test2.ris', 'Pruebas2Test/BibTeX/journal_test2.bib')
