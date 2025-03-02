@@ -1,7 +1,7 @@
 import re
 import csv
 
-# Define tag equivalences
+# Definir etiquetas de equivalencias
 tag_equivalences = {}
 entry_type_equivalences = {}
 with open('tag_equivalence.csv', mode='r', encoding='utf-8') as infile:
@@ -236,7 +236,7 @@ def convert_ris_to_bibtex(input_filename, output_filename):
     bibtex_str = ris_to_bibtex(ris_entries)
     write_file(output_filename, bibtex_str)
 
-# Example usage
+#Ejemplo de uso
 #convert_bibtex_to_ris('Pruebas1/journal2.bib', 'Pruebas1Test/RIS/journal2.ris')
 #convert_ris_to_bibtex('Pruebas1/journal2.ris', 'Pruebas1Test/BibTeX/journal2.bib')
 
