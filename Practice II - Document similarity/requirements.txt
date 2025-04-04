@@ -1,0 +1,5 @@
+spacy
+scikit-learn
+numpy
+pandas
+bibtexparser
