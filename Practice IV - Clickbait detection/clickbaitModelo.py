@@ -10,13 +10,26 @@ from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.svm import SVC
+from imblearn.over_sampling import RandomOverSampler
+from sklearn.decomposition import TruncatedSVD
 
 
 class ClickBaitDetector:
 
-    def __init__(self, tipoVectorizacion, nombreModelo):
+    def __init__(self, tipoVectorizacion, nombreModelo, tipoNormalizacion = "Completo"):
         self.nombreModelo = nombreModelo
-        self.archivoNormalizado = "./corpus_tokenizado/TA1C_dataset_Normalize_detection_train.csv"
+        self.archivoNormalizacion = {
+        "Completo": "./corpus_tokenizado/TA1C_dataset_Completo.csv",
+        "Tokenizacion": "./corpus_tokenizado/TA1C_dataset_Tokenizacion.csv",
+        "Stopwords": "./corpus_tokenizado/TA1C_dataset_Stopwords.csv",
+        "Lematizacion": "./corpus_tokenizado/TA1C_dataset_Lematizacion.csv",
+        "Tokenizacion_Stopwords": "./corpus_tokenizado/TA1C_dataset_Tokenizacion_Stopwords.csv",
+        "Tokenizacion_Lematizacion": "./corpus_tokenizado/TA1C_dataset_Tokenizacion_Lematizacion.csv",
+        "Stopwords_Lematizacion": "./corpus_tokenizado/TA1C_dataset_Stopwords_Lematizacion.csv"
+    }
+        self.tipoNormalizacion = tipoNormalizacion
+        self.archivoNormalizado = self.archivoNormalizacion[tipoNormalizacion]
+        self.tipoVectorizacion = tipoVectorizacion
         self.corpus = {
             "Tweet_ID": [],
             "Teaser_Tokens": [],
@@ -27,57 +40,74 @@ class ClickBaitDetector:
             ("naive_bayes", "frecuencia", (1, 1), {}),
             ("naive_bayes", "binaria", (1, 1), {}),
             ("naive_bayes", "tfidf", (1, 1), {}),
+            
             ("logistic_regression", "frecuencia", (1, 1), {"max_iter": 200}),
             ("logistic_regression", "binaria", (1, 1), {"max_iter": 200}),
             ("logistic_regression", "tfidf", (1, 1), {"max_iter": 200}),
+
             ("svc", "frecuencia", (1, 1), {"kernel": "linear", "C": 1.0}),
             ("svc", "binaria", (1, 1), {"kernel": "linear", "C": 1.0}),
             ("svc", "tfidf", (1, 1), {"kernel": "linear", "C": 1.0}),
+
             ("mlp", "frecuencia", (1, 1), {"hidden_layer_sizes": (100,), "max_iter": 100}),
             ("mlp", "binaria", (1, 1), {"hidden_layer_sizes": (100,), "max_iter": 100}),
             ("mlp", "tfidf", (1, 1), {"hidden_layer_sizes": (100,), "max_iter": 100}),
+        
             ("random_forest", "frecuencia", (1, 1), {"n_estimators": 100}),
             ("random_forest", "binaria", (1, 1), {"n_estimators": 100}),
-            ("random_forest", "tfidf", (1, 1), {"n_estimators": 100}),
-            ("gradient_boosting", "frecuencia", (1, 1), {"n_estimators": 100}),
+            ("random_forest", "tfidf", (1, 1), {"n_estimators": 100}),#
+#
+            ("gradient_boosting", "frecuencia", (1, 1), {"n_estimators#": 100}),
             ("gradient_boosting", "binaria", (1, 1), {"n_estimators": 100}),
             ("gradient_boosting", "tfidf", (1, 1), {"n_estimators": 100}),
+            
             ("naive_bayes", "frecuencia", (2, 2), {}),
             ("naive_bayes", "binaria", (2, 2), {}),
             ("naive_bayes", "tfidf", (2, 2), {}),
+            
             ("logistic_regression", "frecuencia", (2, 2), {"max_iter": 200}),
             ("logistic_regression", "binaria", (2, 2), {"max_iter": 200}),
             ("logistic_regression", "tfidf", (2, 2), {"max_iter": 200}),
+            
             ("svc", "frecuencia", (2, 2), {"kernel": "linear", "C": 1.0}),
             ("svc", "binaria", (2, 2), {"kernel": "linear", "C": 1.0}),
             ("svc", "tfidf", (2, 2), {"kernel": "linear", "C": 1.0}),
+            
             ("mlp", "frecuencia", (2, 2), {"hidden_layer_sizes": (100,), "max_iter": 100}),
             ("mlp", "binaria", (2, 2), {"hidden_layer_sizes": (100,), "max_iter": 100}),
             ("mlp", "tfidf", (2, 2), {"hidden_layer_sizes": (100,), "max_iter": 100}),
+        
             ("random_forest", "frecuencia", (2, 2), {"n_estimators": 100}),
             ("random_forest", "binaria", (2, 2), {"n_estimators": 100}),
             ("random_forest", "tfidf", (2, 2), {"n_estimators": 100}),
+            
             ("gradient_boosting", "frecuencia", (2, 2), {"n_estimators": 100}),
             ("gradient_boosting", "binaria", (2, 2), {"n_estimators": 100}),
             ("gradient_boosting", "tfidf", (2, 2), {"n_estimators": 100}),
+            
             ("naive_bayes", "frecuencia", (3, 3), {}),
             ("naive_bayes", "binaria", (3, 3), {}),
             ("naive_bayes", "tfidf", (3, 3), {}),
+            
             ("logistic_regression", "frecuencia", (3, 3), {"max_iter": 200}),
             ("logistic_regression", "binaria", (3, 3), {"max_iter": 200}),
             ("logistic_regression", "tfidf", (3, 3), {"max_iter": 200}),
+            
             ("svc", "frecuencia", (3, 3), {"kernel": "linear", "C": 1.0}),
             ("svc", "binaria", (3, 3), {"kernel": "linear", "C": 1.0}),
             ("svc", "tfidf", (3, 3), {"kernel": "linear", "C": 1.0}),
+            
             ("mlp", "frecuencia", (3, 3), {"hidden_layer_sizes": (100,), "max_iter": 100}),
             ("mlp", "binaria", (3, 3), {"hidden_layer_sizes": (100,), "max_iter": 100}),
             ("mlp", "tfidf", (3, 3), {"hidden_layer_sizes": (100,), "max_iter": 100}),
+           
             ("random_forest", "frecuencia", (3, 3), {"n_estimators": 100}),
             ("random_forest", "binaria", (3, 3), {"n_estimators": 100}),
             ("random_forest", "tfidf", (3, 3), {"n_estimators": 100}),
+            
             ("gradient_boosting", "frecuencia", (3, 3), {"n_estimators": 100}),
             ("gradient_boosting", "binaria", (3, 3), {"n_estimators": 100}),
-            ("gradient_boosting", "tfidf", (3, 3), {"n_estimators": 100})
+            ("gradient_boosting", "tfidf", (3, 3), {"n_estimators": 100}),
         ]
 
     def cargarDatos(self):
@@ -99,7 +129,8 @@ class ClickBaitDetector:
     
     def crearPipeline(self, tipoVectorizacion="tfidf", ngram_range=(1,1), modelo = None, parametros = None):
         nombreModelo = modelo or self.nombreModelo
-        
+
+        # Vectorización normal
         if tipoVectorizacion == "frecuencia":
             vectorizador = CountVectorizer(ngram_range=ngram_range, token_pattern=r'(?u)\w+|\w+\n|\.|\¿|\?')
         elif tipoVectorizacion == "tfidf":
@@ -107,11 +138,16 @@ class ClickBaitDetector:
         elif tipoVectorizacion == "binaria":
             vectorizador = CountVectorizer(binary=True, ngram_range=ngram_range, token_pattern=r'(?u)\w+|\w+\n|\.|\¿|\?')
         elif tipoVectorizacion == "svd":
-            print("Vectorización SVD no implementada.")
-            return None
+            # Pipeline de tfidf + reducción dimensional
+            tfidf = TfidfVectorizer(ngram_range=ngram_range, token_pattern=r'(?u)\w+|\w+\n|\.|\¿|\?')
+            svd = TruncatedSVD(n_components=100, random_state=0)
+            vectorizador = Pipeline([
+                ('tfidf', tfidf),
+                ('svd', svd)
+            ])
         else:
             raise ValueError(f"Tipo de vectorización '{tipoVectorizacion}' no soportado.\n"
-                             f"Tipos soportados: \n[1]frecuencia\n[2]tfidf\n[3]binaria\n[4]svd")
+                            f"Tipos soportados: \n[1]frecuencia\n[2]tfidf\n[3]binaria\n[4]svd")
         
         if nombreModelo == "naive_bayes":
             clasificador = MultinomialNB(**(parametros or {}))
@@ -127,8 +163,9 @@ class ClickBaitDetector:
             clasificador = GradientBoostingClassifier(**(parametros or {}))
         else:
             raise ValueError(f"Modelo '{nombreModelo}' no soportado.\n"
-                             f"Modelos soportados: [1]naive_bayes\n[2]logistic_regression\n[3]svc\n[4]mlp "
-                             f"[5]random_forest\n[6]gradient_boosting")
+                            f"Modelos soportados: [1]naive_bayes\n[2]logistic_regression\n[3]svc\n[4]mlp "
+                            f"[5]random_forest\n[6]gradient_boosting")
+
         self.pipeline = Pipeline([
             ('text_representation', vectorizador),
             ('classifier', clasificador)
@@ -143,6 +180,32 @@ class ClickBaitDetector:
         self.pipeline.fit(X_train, y_train)
         
         return self.pipeline
+    
+    def entrenarModeloBalanceado(self, X_train, y_train): 
+        if not self.pipeline:
+            raise ValueError("El pipeline no ha sido creado. Llama a crearPipeline primero.")
+
+
+        vectorizador = self.pipeline.named_steps['text_representation']
+        clasificador = self.pipeline.named_steps['classifier']
+
+
+        X_vect = vectorizador.fit_transform(X_train)
+
+        sampler = RandomOverSampler(random_state=0)
+        X_bal, y_bal = sampler.fit_resample(X_vect, y_train)
+
+    
+        clasificador.fit(X_bal, y_bal)
+
+   
+        self.pipeline = Pipeline([
+            ('text_representation', vectorizador),
+            ('classifier', clasificador)
+        ])
+        
+        return self.pipeline
+
     
     def evaluarModelo(self, X_test, y_test):
         if not self.pipeline:
@@ -183,12 +246,22 @@ class ClickBaitDetector:
             print("="*100)
             print(f"\nExperimento {i+1}/{len(self.experimentos)}: {modelo} + {tipoVectorizacion} + {ngram_range} + {extra_parametros}")
             self.crearPipeline(tipoVectorizacion=tipoVectorizacion, ngram_range=ngram_range, modelo=modelo, parametros=extra_parametros) 
-            self.entrenarModelo(X_train, y_train)
+            self.entrenarModeloBalanceado(X_train, y_train)
+            metodoBalanceo = "RandomOverSampler"
             reporte = self.evaluarModelo(X_test, y_test)
             print(f"Reporte de clasificación:\n\n{reporte}")
             cv_resultados = self.validacionCruzada(X_train, y_train, n_splits=5)
 
-            normalizacionTexto = "Tokenizacion, lemmatization and stopword removal"
+            normalizacionTexto = {
+                "Completo": "Tokenizacion + Stopwords + Lematizacion",
+                "Tokenizacion": "Solo Tokenizacion",
+                "Stopwords": "Solo Stopwords",
+                "Lematizacion": "Solo Lematizacion",
+                "Tokenizacion_Stopwords": "Tokenizacion + Stopwords",
+                "Tokenizacion_Lematizacion": "Tokenizacion + Lematizacion",
+                "Stopwords_Lematizacion": "Stopwords + Lematizacion"
+            }.get(self.tipoNormalizacion, "Desconocido")
+
             metodoBalanceo = "None"
             
             resultado = {
@@ -303,11 +376,12 @@ class ClickBaitDetector:
         if modo == "completo":
             print("Cargando datos...")
             self.cargarDatos()
+            print(f"\n\n\t\tEl nombre del archivo es :\t{self.archivoNormalizado}")
             print("\n\n\t\tEjecutando experimentos...\n")
             resultados = self.ejecutarExperimentos()
-            generarReporte(resultados, "resultados_experimentos_6.csv")
-            generarTablaResultados(resultados, "Evidencia.csv")
-        
+            generarReporte(resultados, "resultados_experimentos20_.csv")
+            generarTablaResultados(resultados, "Evidencia20_.csv")
+
             print("\nResultados ordenados por F1-macro:")
             for i, res in enumerate(resultados[:10]):
                 print(f"{i+1}. {res['modelo']} + {res['tipoVectorizacion']} + {res['ngram_range']}: F1={res['f1_macro']:.4f}, CV={res['cv_media']:.4f}")
@@ -320,19 +394,19 @@ class ClickBaitDetector:
 
             datos_prueba = self.cargarDatosPrueba("./corpus_tokenizado/TA1C_dataset_Normalize_detection_dev.csv")
             if datos_prueba:
-                self.predecirYGuardar(datos_prueba, "predicciones_2.csv")
-                print(f"\nPredicciones realizadas y guardadas en predicciones_2.csv")
+                self.predecirYGuardar(datos_prueba, "predicciones_3.csv")
+                print(f"\nPredicciones realizadas y guardadas en predicciones_3.csv")
             else:
                 print("No se pudieron cargar los datos de prueba.")
 
 
-def generarReporte(resultados, archivo_salida="experimentos_resultados.csv"):
+def generarReporte(resultados, archivo_salida="experimentos_resultados2.csv"):
     df = pd.DataFrame(resultados)
     df.to_csv(archivo_salida, index=False)
     print(f"Resultados guardados en {archivo_salida}")
     return df
 
-def generarTablaResultados(resultados, archivo_salida="Evidencia.csv"):
+def generarTablaResultados(resultados, archivo_salida="Evidencia3.csv"):
     columnas = ["modelo", "tipoVectorizacion", "ngram_range", "parametros", "normalizacionTexto", "metodoBalanceo", "f1_macro"]
     df = pd.DataFrame(resultados)[columnas]
     df = df.rename(columns={
