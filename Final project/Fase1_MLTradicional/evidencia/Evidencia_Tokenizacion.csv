@@ -1,0 +1,37 @@
+ML_Model,Text_Representation,ngram_range,ML_Hyperparameters,Text_Normalization,Balance_Methods,Average_f-score_Macro
+svc,frecuencia,"(1, 1)","{'kernel': 'linear', 'C': 1.0}",Solo Tokenizacion,None,0.7206439393939394
+svc,binaria,"(1, 1)","{'kernel': 'linear', 'C': 1.0}",Solo Tokenizacion,None,0.7130974624796577
+logistic_regression,frecuencia,"(1, 1)",{'max_iter': 200},Solo Tokenizacion,None,0.6636733595668113
+logistic_regression,binaria,"(1, 1)",{'max_iter': 200},Solo Tokenizacion,None,0.6606181275170822
+svc,tfidf,"(1, 1)","{'kernel': 'linear', 'C': 1.0}",Solo Tokenizacion,None,0.6528442827044627
+svc,binaria,"(2, 2)","{'kernel': 'linear', 'C': 1.0}",Solo Tokenizacion,None,0.6031746031746033
+svc,frecuencia,"(2, 2)","{'kernel': 'linear', 'C': 1.0}",Solo Tokenizacion,None,0.595014446499595
+naive_bayes,frecuencia,"(1, 1)",{},Solo Tokenizacion,None,0.567063868387416
+random_forest,frecuencia,"(1, 1)",{'n_estimators': 100},Solo Tokenizacion,None,0.5628988547949996
+random_forest,binaria,"(1, 1)",{'n_estimators': 100},Solo Tokenizacion,None,0.5559052364717195
+logistic_regression,tfidf,"(1, 1)",{'max_iter': 200},Solo Tokenizacion,None,0.5550364313921797
+random_forest,tfidf,"(1, 1)",{'n_estimators': 100},Solo Tokenizacion,None,0.5505872444628456
+naive_bayes,binaria,"(1, 1)",{},Solo Tokenizacion,None,0.5451273106279034
+svc,tfidf,"(2, 2)","{'kernel': 'linear', 'C': 1.0}",Solo Tokenizacion,None,0.5341787641136881
+logistic_regression,binaria,"(2, 2)",{'max_iter': 200},Solo Tokenizacion,None,0.5286403737107962
+logistic_regression,frecuencia,"(2, 2)",{'max_iter': 200},Solo Tokenizacion,None,0.5265266060943283
+naive_bayes,binaria,"(3, 3)",{},Solo Tokenizacion,None,0.5244565217391304
+naive_bayes,frecuencia,"(3, 3)",{},Solo Tokenizacion,None,0.5230994505568318
+random_forest,tfidf,"(2, 2)",{'n_estimators': 100},Solo Tokenizacion,None,0.5093105634332501
+random_forest,binaria,"(2, 2)",{'n_estimators': 100},Solo Tokenizacion,None,0.4980946184589646
+svc,binaria,"(3, 3)","{'kernel': 'linear', 'C': 1.0}",Solo Tokenizacion,None,0.4980946184589646
+svc,tfidf,"(3, 3)","{'kernel': 'linear', 'C': 1.0}",Solo Tokenizacion,None,0.4975691211892834
+svc,frecuencia,"(3, 3)","{'kernel': 'linear', 'C': 1.0}",Solo Tokenizacion,None,0.4970465250320311
+naive_bayes,frecuencia,"(2, 2)",{},Solo Tokenizacion,None,0.4949838645553888
+naive_bayes,binaria,"(2, 2)",{},Solo Tokenizacion,None,0.4949838645553888
+random_forest,tfidf,"(3, 3)",{'n_estimators': 100},Solo Tokenizacion,None,0.4934642821966766
+random_forest,frecuencia,"(3, 3)",{'n_estimators': 100},Solo Tokenizacion,None,0.491139846743295
+random_forest,frecuencia,"(2, 2)",{'n_estimators': 100},Solo Tokenizacion,None,0.484528267560151
+logistic_regression,frecuencia,"(3, 3)",{'max_iter': 200},Solo Tokenizacion,None,0.484528267560151
+logistic_regression,binaria,"(3, 3)",{'max_iter': 200},Solo Tokenizacion,None,0.484528267560151
+random_forest,binaria,"(3, 3)",{'n_estimators': 100},Solo Tokenizacion,None,0.484528267560151
+naive_bayes,tfidf,"(1, 1)",{},Solo Tokenizacion,None,0.47772657450076805
+naive_bayes,tfidf,"(3, 3)",{},Solo Tokenizacion,None,0.4700460829493087
+naive_bayes,tfidf,"(2, 2)",{},Solo Tokenizacion,None,0.46294307196562834
+logistic_regression,tfidf,"(2, 2)",{'max_iter': 200},Solo Tokenizacion,None,0.46294307196562834
+logistic_regression,tfidf,"(3, 3)",{'max_iter': 200},Solo Tokenizacion,None,0.46294307196562834

@@ -1,0 +1,37 @@
+ML_Model,Text_Representation,ngram_range,ML_Hyperparameters,Text_Normalization,Balance_Methods,Average_f-score_Macro
+svc,binaria,"(1, 1)","{'kernel': 'linear', 'C': 1.0}",Tokenizacion + Stopwords + Lematizacion,None,0.6888275563492707
+svc,frecuencia,"(1, 1)","{'kernel': 'linear', 'C': 1.0}",Tokenizacion + Stopwords + Lematizacion,None,0.6816976127320955
+logistic_regression,binaria,"(1, 1)",{'max_iter': 200},Tokenizacion + Stopwords + Lematizacion,None,0.664804469273743
+svc,tfidf,"(1, 1)","{'kernel': 'linear', 'C': 1.0}",Tokenizacion + Stopwords + Lematizacion,None,0.6502708918685018
+logistic_regression,frecuencia,"(1, 1)",{'max_iter': 200},Tokenizacion + Stopwords + Lematizacion,None,0.6446880868991423
+random_forest,frecuencia,"(1, 1)",{'n_estimators': 100},Tokenizacion + Stopwords + Lematizacion,None,0.6408733959011683
+random_forest,binaria,"(1, 1)",{'n_estimators': 100},Tokenizacion + Stopwords + Lematizacion,None,0.6373263699996373
+random_forest,tfidf,"(1, 1)",{'n_estimators': 100},Tokenizacion + Stopwords + Lematizacion,None,0.6223137062356007
+naive_bayes,binaria,"(1, 1)",{},Tokenizacion + Stopwords + Lematizacion,None,0.5949855351976856
+naive_bayes,frecuencia,"(1, 1)",{},Tokenizacion + Stopwords + Lematizacion,None,0.5939365453911798
+logistic_regression,tfidf,"(1, 1)",{'max_iter': 200},Tokenizacion + Stopwords + Lematizacion,None,0.55417468749028
+naive_bayes,frecuencia,"(2, 2)",{},Tokenizacion + Stopwords + Lematizacion,None,0.5183093683703484
+naive_bayes,binaria,"(2, 2)",{},Tokenizacion + Stopwords + Lematizacion,None,0.5183093683703484
+svc,binaria,"(2, 2)","{'kernel': 'linear', 'C': 1.0}",Tokenizacion + Stopwords + Lematizacion,None,0.5075347188023244
+svc,frecuencia,"(2, 2)","{'kernel': 'linear', 'C': 1.0}",Tokenizacion + Stopwords + Lematizacion,None,0.5069499082087595
+svc,tfidf,"(2, 2)","{'kernel': 'linear', 'C': 1.0}",Tokenizacion + Stopwords + Lematizacion,None,0.5032614331451528
+naive_bayes,frecuencia,"(3, 3)",{},Tokenizacion + Stopwords + Lematizacion,None,0.491139846743295
+naive_bayes,binaria,"(3, 3)",{},Tokenizacion + Stopwords + Lematizacion,None,0.491139846743295
+random_forest,frecuencia,"(2, 2)",{'n_estimators': 100},Tokenizacion + Stopwords + Lematizacion,None,0.4906589831768752
+random_forest,binaria,"(2, 2)",{'n_estimators': 100},Tokenizacion + Stopwords + Lematizacion,None,0.4906589831768752
+random_forest,tfidf,"(2, 2)",{'n_estimators': 100},Tokenizacion + Stopwords + Lematizacion,None,0.4901804317950082
+logistic_regression,frecuencia,"(2, 2)",{'max_iter': 200},Tokenizacion + Stopwords + Lematizacion,None,0.484528267560151
+logistic_regression,binaria,"(2, 2)",{'max_iter': 200},Tokenizacion + Stopwords + Lematizacion,None,0.484528267560151
+svc,frecuencia,"(3, 3)","{'kernel': 'linear', 'C': 1.0}",Tokenizacion + Stopwords + Lematizacion,None,0.484528267560151
+svc,binaria,"(3, 3)","{'kernel': 'linear', 'C': 1.0}",Tokenizacion + Stopwords + Lematizacion,None,0.484528267560151
+svc,tfidf,"(3, 3)","{'kernel': 'linear', 'C': 1.0}",Tokenizacion + Stopwords + Lematizacion,None,0.484528267560151
+random_forest,binaria,"(3, 3)",{'n_estimators': 100},Tokenizacion + Stopwords + Lematizacion,None,0.484528267560151
+random_forest,tfidf,"(3, 3)",{'n_estimators': 100},Tokenizacion + Stopwords + Lematizacion,None,0.484528267560151
+random_forest,frecuencia,"(3, 3)",{'n_estimators': 100},Tokenizacion + Stopwords + Lematizacion,None,0.48409156809803017
+logistic_regression,frecuencia,"(3, 3)",{'max_iter': 200},Tokenizacion + Stopwords + Lematizacion,None,0.4773366295461222
+logistic_regression,binaria,"(3, 3)",{'max_iter': 200},Tokenizacion + Stopwords + Lematizacion,None,0.4773366295461222
+naive_bayes,tfidf,"(2, 2)",{},Tokenizacion + Stopwords + Lematizacion,None,0.47038607695251644
+logistic_regression,tfidf,"(2, 2)",{'max_iter': 200},Tokenizacion + Stopwords + Lematizacion,None,0.47038607695251644
+naive_bayes,tfidf,"(1, 1)",{},Tokenizacion + Stopwords + Lematizacion,None,0.46294307196562834
+logistic_regression,tfidf,"(3, 3)",{'max_iter': 200},Tokenizacion + Stopwords + Lematizacion,None,0.46294307196562834
+naive_bayes,tfidf,"(3, 3)",{},Tokenizacion + Stopwords + Lematizacion,None,0.4626544868350349

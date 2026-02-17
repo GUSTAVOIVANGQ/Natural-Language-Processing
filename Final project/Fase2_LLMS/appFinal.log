@@ -1,0 +1,734 @@
+2025-06-20 19:29:09,314 - hateSpeechDetector - INFO - Iniciando el entrenamiento del modelo bert...
+2025-06-20 19:29:09,317 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo BERT Base en espa�ol
+2025-06-20 19:29:09,317 - hateSpeechDetector - INFO - Ruta del modelo: 	 dccuchile/bert-base-spanish-wwm-cased
+2025-06-20 19:29:09,317 - hateSpeechDetector - INFO - Cargando datos desde ./hascosva_2022_modificado.csv...
+2025-06-20 19:29:09,353 - hateSpeechDetector - INFO - Dataset cargado con 4000 muestras, 2 clases.
+2025-06-20 19:29:09,353 - hateSpeechDetector - INFO - Clases: ['Discurso Odio' 'No Odio']
+2025-06-20 19:29:09,353 - hateSpeechDetector - INFO - Dividiendo el dataset para el conjunto de entrenamiento...
+2025-06-20 19:29:09,358 - hateSpeechDetector - INFO - Dataset dividido en 3000 muestras para entrenamiento y 1000 para prueba.
+2025-06-20 19:29:09,359 - hateSpeechDetector - INFO - Codificando etiquetas...
+2025-06-20 19:29:09,360 - hateSpeechDetector - INFO - Mapeo de etiquetas: ['Discurso Odio' 'No Odio']
+2025-06-20 19:29:09,360 - hateSpeechDetector - INFO - Etiquetas codificadas: 2 clases en entrenamiento, 2 clases en prueba.
+2025-06-20 19:29:09,360 - hateSpeechDetector - INFO - Preparando el tokenizador...
+2025-06-20 19:29:09,360 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 19:29:09,360 - hateSpeechDetector - INFO - Configurando BertTokenizer...
+2025-06-20 19:29:11,599 - hateSpeechDetector - INFO - Tokenizador configurado - BertTokenizer(name_or_path='dccuchile/bert-base-spanish-wwm-cased', vocab_size=31002, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=True, added_tokens_decoder={
+	0: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	3: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	4: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	5: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 19:29:11,599 - hateSpeechDetector - INFO - Tokenizador configurado - BertTokenizer(name_or_path='dccuchile/bert-base-spanish-wwm-cased', vocab_size=31002, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=True, added_tokens_decoder={
+	0: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	3: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	4: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	5: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 19:29:11,599 - hateSpeechDetector - INFO - Tokenizando el conjunto de entrenamiento...
+2025-06-20 19:29:12,613 - hateSpeechDetector - INFO - Tokenizando el conjunto de prueba...
+2025-06-20 19:29:12,942 - hateSpeechDetector - INFO - Creando datasets personalizados...
+2025-06-20 19:29:12,942 - hateSpeechDetector - INFO - Dataset de entrenamiento preparado con 3000 muestras.
+2025-06-20 19:29:12,942 - hateSpeechDetector - INFO - Dataset de prueba preparado con 1000 muestras.
+2025-06-20 19:29:12,942 - hateSpeechDetector - INFO - Definiendo el modelo...
+2025-06-20 19:31:11,029 - hateSpeechDetector - INFO - Configurando los argumentos de entrenamiento del bert...
+2025-06-20 19:31:11,029 - hateSpeechDetector - ERROR - Error durante el entrenamiento: Using the `Trainer` with `PyTorch` requires `accelerate>=0.26.0`: Please run `pip install transformers[torch]` or `pip install 'accelerate>=0.26.0'`
+2025-06-20 19:37:34,997 - hateSpeechDetector - INFO - Iniciando el entrenamiento del modelo bert...
+2025-06-20 19:37:34,997 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo BERT Base en espa�ol
+2025-06-20 19:37:34,997 - hateSpeechDetector - INFO - Ruta del modelo: 	 dccuchile/bert-base-spanish-wwm-cased
+2025-06-20 19:37:34,997 - hateSpeechDetector - INFO - Cargando datos desde ./hascosva_2022_modificado.csv...
+2025-06-20 19:37:35,023 - hateSpeechDetector - INFO - Dataset cargado con 4000 muestras, 2 clases.
+2025-06-20 19:37:35,023 - hateSpeechDetector - INFO - Clases: ['Discurso Odio' 'No Odio']
+2025-06-20 19:37:35,023 - hateSpeechDetector - INFO - Dividiendo el dataset para el conjunto de entrenamiento...
+2025-06-20 19:37:35,026 - hateSpeechDetector - INFO - Dataset dividido en 3000 muestras para entrenamiento y 1000 para prueba.
+2025-06-20 19:37:35,026 - hateSpeechDetector - INFO - Codificando etiquetas...
+2025-06-20 19:37:35,027 - hateSpeechDetector - INFO - Mapeo de etiquetas: ['Discurso Odio' 'No Odio']
+2025-06-20 19:37:35,028 - hateSpeechDetector - INFO - Etiquetas codificadas: 2 clases en entrenamiento, 2 clases en prueba.
+2025-06-20 19:37:35,028 - hateSpeechDetector - INFO - Preparando el tokenizador...
+2025-06-20 19:37:35,028 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 19:37:35,028 - hateSpeechDetector - INFO - Configurando BertTokenizer...
+2025-06-20 19:38:25,579 - hateSpeechDetector - INFO - Tokenizador configurado - BertTokenizer(name_or_path='dccuchile/bert-base-spanish-wwm-cased', vocab_size=31002, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=True, added_tokens_decoder={
+	0: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	3: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	4: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	5: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 19:38:25,579 - hateSpeechDetector - INFO - Tokenizador configurado - BertTokenizer(name_or_path='dccuchile/bert-base-spanish-wwm-cased', vocab_size=31002, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=True, added_tokens_decoder={
+	0: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	3: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	4: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	5: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 19:38:25,579 - hateSpeechDetector - INFO - Tokenizando el conjunto de entrenamiento...
+2025-06-20 19:38:26,550 - hateSpeechDetector - INFO - Tokenizando el conjunto de prueba...
+2025-06-20 19:38:26,868 - hateSpeechDetector - INFO - Creando datasets personalizados...
+2025-06-20 19:38:26,868 - hateSpeechDetector - INFO - Dataset de entrenamiento preparado con 3000 muestras.
+2025-06-20 19:38:26,868 - hateSpeechDetector - INFO - Dataset de prueba preparado con 1000 muestras.
+2025-06-20 19:38:26,868 - hateSpeechDetector - INFO - Definiendo el modelo...
+2025-06-20 19:38:27,416 - hateSpeechDetector - INFO - Configurando los argumentos de entrenamiento del bert...
+2025-06-20 19:38:27,432 - hateSpeechDetector - INFO - Comenzando el entrenamiento del modelo...
+2025-06-20 20:12:05,005 - hateSpeechDetector - INFO - Iniciando el entrenamiento del modelo bert...
+2025-06-20 20:12:05,007 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo BERT Base en espa�ol
+2025-06-20 20:12:05,007 - hateSpeechDetector - INFO - Ruta del modelo: 	 dccuchile/bert-base-spanish-wwm-cased
+2025-06-20 20:12:05,007 - hateSpeechDetector - INFO - Cargando datos desde ./hascosva_2022_modificado.csv...
+2025-06-20 20:12:05,049 - hateSpeechDetector - INFO - Dataset cargado con 4000 muestras, 2 clases.
+2025-06-20 20:12:05,049 - hateSpeechDetector - INFO - Clases: ['Discurso Odio' 'No Odio']
+2025-06-20 20:12:05,049 - hateSpeechDetector - INFO - Dividiendo el dataset para el conjunto de entrenamiento...
+2025-06-20 20:12:05,053 - hateSpeechDetector - INFO - Dataset dividido en 3000 muestras para entrenamiento y 1000 para prueba.
+2025-06-20 20:12:05,053 - hateSpeechDetector - INFO - Codificando etiquetas...
+2025-06-20 20:12:05,054 - hateSpeechDetector - INFO - Mapeo de etiquetas: ['Discurso Odio' 'No Odio']
+2025-06-20 20:12:05,055 - hateSpeechDetector - INFO - Etiquetas codificadas: 2 clases en entrenamiento, 2 clases en prueba.
+2025-06-20 20:12:05,055 - hateSpeechDetector - INFO - Preparando el tokenizador...
+2025-06-20 20:12:05,055 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 20:12:05,055 - hateSpeechDetector - INFO - Configurando BertTokenizer...
+2025-06-20 20:12:05,497 - hateSpeechDetector - INFO - Tokenizador configurado - BertTokenizer(name_or_path='dccuchile/bert-base-spanish-wwm-cased', vocab_size=31002, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=True, added_tokens_decoder={
+	0: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	3: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	4: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	5: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 20:12:05,497 - hateSpeechDetector - INFO - Tokenizador configurado - BertTokenizer(name_or_path='dccuchile/bert-base-spanish-wwm-cased', vocab_size=31002, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=True, added_tokens_decoder={
+	0: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	3: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	4: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	5: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 20:12:05,497 - hateSpeechDetector - INFO - Tokenizando el conjunto de entrenamiento...
+2025-06-20 20:12:06,469 - hateSpeechDetector - INFO - Tokenizando el conjunto de prueba...
+2025-06-20 20:12:06,791 - hateSpeechDetector - INFO - Creando datasets personalizados...
+2025-06-20 20:12:06,791 - hateSpeechDetector - INFO - Dataset de entrenamiento preparado con 3000 muestras.
+2025-06-20 20:12:06,791 - hateSpeechDetector - INFO - Dataset de prueba preparado con 1000 muestras.
+2025-06-20 20:12:06,791 - hateSpeechDetector - INFO - Definiendo el modelo...
+2025-06-20 20:12:07,598 - hateSpeechDetector - INFO - Configurando los argumentos de entrenamiento del bert...
+2025-06-20 20:12:07,994 - hateSpeechDetector - INFO - Comenzando el entrenamiento del modelo...
+2025-06-20 20:14:45,647 - hateSpeechDetector - INFO - Entrenamiento completado exitosamente.
+2025-06-20 20:14:47,881 - hateSpeechDetector - ERROR - Error durante el entrenamiento: 'DetectorHateSpeech' object has no attribute 'tipoModelo'
+2025-06-20 20:21:31,813 - hateSpeechDetector - INFO - Programa finalizado por el usuario.
+2025-06-20 20:22:48,731 - hateSpeechDetector - INFO - Iniciando el entrenamiento del modelo roberta...
+2025-06-20 20:22:48,732 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo RoBERTa Base en espa�ol
+2025-06-20 20:22:48,732 - hateSpeechDetector - INFO - Ruta del modelo: 	 PlanTL-GOB-ES/roberta-base-bne
+2025-06-20 20:22:48,732 - hateSpeechDetector - INFO - Cargando datos desde ./hascosva_2022_modificado.csv...
+2025-06-20 20:22:48,760 - hateSpeechDetector - INFO - Dataset cargado con 4000 muestras, 2 clases.
+2025-06-20 20:22:48,760 - hateSpeechDetector - INFO - Clases: ['Discurso Odio' 'No Odio']
+2025-06-20 20:22:48,760 - hateSpeechDetector - INFO - Dividiendo el dataset para el conjunto de entrenamiento...
+2025-06-20 20:22:48,763 - hateSpeechDetector - INFO - Dataset dividido en 3000 muestras para entrenamiento y 1000 para prueba.
+2025-06-20 20:22:48,763 - hateSpeechDetector - INFO - Codificando etiquetas...
+2025-06-20 20:22:48,765 - hateSpeechDetector - INFO - Mapeo de etiquetas: ['Discurso Odio' 'No Odio']
+2025-06-20 20:22:48,765 - hateSpeechDetector - INFO - Etiquetas codificadas: 2 clases en entrenamiento, 2 clases en prueba.
+2025-06-20 20:22:48,765 - hateSpeechDetector - INFO - Preparando el tokenizador...
+2025-06-20 20:22:48,765 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 20:22:48,765 - hateSpeechDetector - INFO - Configurando RobertaTokenizer...
+2025-06-20 20:22:52,550 - hateSpeechDetector - INFO - Tokenizador configurado - RobertaTokenizer(name_or_path='PlanTL-GOB-ES/roberta-base-bne', vocab_size=50262, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'sep_token': '</s>', 'pad_token': '<pad>', 'cls_token': '<s>', 'mask_token': '<mask>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	1: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	3: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	4: AddedToken("<mask>", rstrip=False, lstrip=True, single_word=False, normalized=True, special=True),
+}
+)
+2025-06-20 20:22:52,550 - hateSpeechDetector - INFO - Tokenizador configurado - RobertaTokenizer(name_or_path='PlanTL-GOB-ES/roberta-base-bne', vocab_size=50262, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'sep_token': '</s>', 'pad_token': '<pad>', 'cls_token': '<s>', 'mask_token': '<mask>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	1: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	3: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	4: AddedToken("<mask>", rstrip=False, lstrip=True, single_word=False, normalized=True, special=True),
+}
+)
+2025-06-20 20:22:52,550 - hateSpeechDetector - INFO - Tokenizando el conjunto de entrenamiento...
+2025-06-20 20:22:53,799 - hateSpeechDetector - INFO - Tokenizando el conjunto de prueba...
+2025-06-20 20:22:54,113 - hateSpeechDetector - INFO - Creando datasets personalizados...
+2025-06-20 20:22:54,114 - hateSpeechDetector - INFO - Dataset de entrenamiento preparado con 3000 muestras.
+2025-06-20 20:22:54,114 - hateSpeechDetector - INFO - Dataset de prueba preparado con 1000 muestras.
+2025-06-20 20:22:54,114 - hateSpeechDetector - INFO - Definiendo el modelo...
+2025-06-20 20:23:58,202 - hateSpeechDetector - INFO - Configurando los argumentos de entrenamiento del roberta...
+2025-06-20 20:23:58,570 - hateSpeechDetector - INFO - Comenzando el entrenamiento del modelo...
+2025-06-20 20:27:19,890 - hateSpeechDetector - INFO - Entrenamiento completado exitosamente.
+2025-06-20 20:27:22,273 - hateSpeechDetector - INFO - Reporte de clasificaci�n del modelo roberta:
+               precision    recall  f1-score   support
+
+Discurso Odio       0.61      0.56      0.58       138
+      No Odio       0.93      0.94      0.94       862
+
+     accuracy                           0.89      1000
+    macro avg       0.77      0.75      0.76      1000
+ weighted avg       0.89      0.89      0.89      1000
+
+2025-06-20 20:27:22,273 - hateSpeechDetector - INFO - Creando la matriz de confusi�n...
+2025-06-20 20:27:23,732 - hateSpeechDetector - INFO - Modelo guardado en modelo_guardado_roberta
+2025-06-20 20:27:23,733 - hateSpeechDetector - INFO - Metadatos guardados en modelo_guardado_roberta/metadatos.pkl
+2025-06-20 20:27:23,733 - hateSpeechDetector - INFO - Entrenamiento del modelo roberta completado y guardado exitosamente.
+2025-06-20 20:27:23,738 - hateSpeechDetector - INFO - Modelo roberta entrenado
+2025-06-20 20:30:10,821 - hateSpeechDetector - ERROR - Error al realizar la inferencia: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument index in method wrapper_CUDA__index_select)
+2025-06-20 20:30:33,440 - hateSpeechDetector - ERROR - Error al realizar la inferencia: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument index in method wrapper_CUDA__index_select)
+2025-06-20 20:30:59,553 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo RoBERTa Base en espa�ol
+2025-06-20 20:30:59,553 - hateSpeechDetector - INFO - Ruta del modelo: 	 PlanTL-GOB-ES/roberta-base-bne
+2025-06-20 20:30:59,569 - hateSpeechDetector - INFO - Cargando el modelo entrenado el 2025-06-20T20:27:23.732826...
+2025-06-20 20:30:59,575 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 20:30:59,575 - hateSpeechDetector - INFO - Configurando RobertaTokenizer...
+2025-06-20 20:31:00,096 - hateSpeechDetector - INFO - Tokenizador configurado - RobertaTokenizer(name_or_path='PlanTL-GOB-ES/roberta-base-bne', vocab_size=50262, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'sep_token': '</s>', 'pad_token': '<pad>', 'cls_token': '<s>', 'mask_token': '<mask>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	1: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	3: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	4: AddedToken("<mask>", rstrip=False, lstrip=True, single_word=False, normalized=True, special=True),
+}
+)
+2025-06-20 20:31:00,162 - hateSpeechDetector - INFO - Modelo cargado exitosamente desde modelo_guardado_roberta.
+2025-06-20 20:31:47,838 - hateSpeechDetector - INFO - Programa finalizado por el usuario.
+2025-06-20 20:32:05,959 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo RoBERTa Base en espa�ol
+2025-06-20 20:32:05,959 - hateSpeechDetector - INFO - Ruta del modelo: 	 PlanTL-GOB-ES/roberta-base-bne
+2025-06-20 20:32:05,959 - hateSpeechDetector - INFO - Cargando el modelo entrenado el 2025-06-20T20:27:23.732826...
+2025-06-20 20:32:05,960 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 20:32:05,960 - hateSpeechDetector - INFO - Configurando RobertaTokenizer...
+2025-06-20 20:33:01,629 - hateSpeechDetector - INFO - Tokenizador configurado - RobertaTokenizer(name_or_path='PlanTL-GOB-ES/roberta-base-bne', vocab_size=50262, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'sep_token': '</s>', 'pad_token': '<pad>', 'cls_token': '<s>', 'mask_token': '<mask>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	1: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	3: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	4: AddedToken("<mask>", rstrip=False, lstrip=True, single_word=False, normalized=True, special=True),
+}
+)
+2025-06-20 20:33:01,682 - hateSpeechDetector - INFO - Modelo cargado exitosamente desde modelo_guardado_roberta.
+2025-06-20 20:36:34,974 - hateSpeechDetector - INFO - Programa finalizado por el usuario.
+2025-06-20 20:37:34,118 - hateSpeechDetector - INFO - Iniciando el entrenamiento del modelo bert...
+2025-06-20 20:37:34,118 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo BERT Base en espa�ol
+2025-06-20 20:37:34,118 - hateSpeechDetector - INFO - Ruta del modelo: 	 dccuchile/bert-base-spanish-wwm-cased
+2025-06-20 20:37:34,118 - hateSpeechDetector - INFO - Cargando datos desde ./hascosva_2022_modificado.csv...
+2025-06-20 20:37:34,147 - hateSpeechDetector - INFO - Dataset cargado con 4000 muestras, 2 clases.
+2025-06-20 20:37:34,147 - hateSpeechDetector - INFO - Clases: ['Discurso Odio' 'No Odio']
+2025-06-20 20:37:34,147 - hateSpeechDetector - INFO - Dividiendo el dataset para el conjunto de entrenamiento...
+2025-06-20 20:37:34,150 - hateSpeechDetector - INFO - Dataset dividido en 3000 muestras para entrenamiento y 1000 para prueba.
+2025-06-20 20:37:34,151 - hateSpeechDetector - INFO - Codificando etiquetas...
+2025-06-20 20:37:34,152 - hateSpeechDetector - INFO - Mapeo de etiquetas: ['Discurso Odio' 'No Odio']
+2025-06-20 20:37:34,152 - hateSpeechDetector - INFO - Etiquetas codificadas: 2 clases en entrenamiento, 2 clases en prueba.
+2025-06-20 20:37:34,152 - hateSpeechDetector - INFO - Preparando el tokenizador...
+2025-06-20 20:37:34,152 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 20:37:34,152 - hateSpeechDetector - INFO - Configurando BertTokenizer...
+2025-06-20 20:37:34,552 - hateSpeechDetector - INFO - Tokenizador configurado - BertTokenizer(name_or_path='dccuchile/bert-base-spanish-wwm-cased', vocab_size=31002, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=True, added_tokens_decoder={
+	0: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	3: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	4: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	5: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 20:37:34,552 - hateSpeechDetector - INFO - Tokenizador configurado - BertTokenizer(name_or_path='dccuchile/bert-base-spanish-wwm-cased', vocab_size=31002, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=True, added_tokens_decoder={
+	0: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	3: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	4: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	5: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 20:37:34,552 - hateSpeechDetector - INFO - Tokenizando el conjunto de entrenamiento...
+2025-06-20 20:37:35,540 - hateSpeechDetector - INFO - Tokenizando el conjunto de prueba...
+2025-06-20 20:37:35,862 - hateSpeechDetector - INFO - Creando datasets personalizados...
+2025-06-20 20:37:35,862 - hateSpeechDetector - INFO - Dataset de entrenamiento preparado con 3000 muestras.
+2025-06-20 20:37:35,862 - hateSpeechDetector - INFO - Dataset de prueba preparado con 1000 muestras.
+2025-06-20 20:37:35,862 - hateSpeechDetector - INFO - Definiendo el modelo...
+2025-06-20 20:37:36,804 - hateSpeechDetector - INFO - Configurando los argumentos de entrenamiento del bert...
+2025-06-20 20:37:37,194 - hateSpeechDetector - INFO - Comenzando el entrenamiento del modelo...
+2025-06-20 20:37:49,185 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo RoBERTa Base en espa�ol
+2025-06-20 20:37:49,185 - hateSpeechDetector - INFO - Ruta del modelo: 	 PlanTL-GOB-ES/roberta-base-bne
+2025-06-20 20:37:49,185 - hateSpeechDetector - INFO - Cargando el modelo entrenado el 2025-06-20T20:27:23.732826...
+2025-06-20 20:37:49,185 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 20:37:49,185 - hateSpeechDetector - INFO - Configurando RobertaTokenizer...
+2025-06-20 20:37:49,613 - hateSpeechDetector - INFO - Tokenizador configurado - RobertaTokenizer(name_or_path='PlanTL-GOB-ES/roberta-base-bne', vocab_size=50262, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'sep_token': '</s>', 'pad_token': '<pad>', 'cls_token': '<s>', 'mask_token': '<mask>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	1: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	3: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	4: AddedToken("<mask>", rstrip=False, lstrip=True, single_word=False, normalized=True, special=True),
+}
+)
+2025-06-20 20:37:49,669 - hateSpeechDetector - INFO - Modelo cargado exitosamente desde modelo_guardado_roberta.
+2025-06-20 20:38:15,140 - hateSpeechDetector - INFO - El texto ingresado es : Ellos arruinan nuestra cultura y deber�an ser eliminados de la sociedad.
+2025-06-20 20:38:15,955 - hateSpeechDetector - ERROR - Error al realizar la inferencia: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
+2025-06-20 20:39:56,860 - hateSpeechDetector - INFO - Programa finalizado por el usuario.
+2025-06-20 20:40:24,133 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo RoBERTa Base en espa�ol
+2025-06-20 20:40:24,134 - hateSpeechDetector - INFO - Ruta del modelo: 	 PlanTL-GOB-ES/roberta-base-bne
+2025-06-20 20:40:24,134 - hateSpeechDetector - INFO - Cargando el modelo entrenado el 2025-06-20T20:27:23.732826...
+2025-06-20 20:40:24,134 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 20:40:24,134 - hateSpeechDetector - INFO - Configurando RobertaTokenizer...
+2025-06-20 20:41:01,696 - hateSpeechDetector - INFO - Tokenizador configurado - RobertaTokenizer(name_or_path='PlanTL-GOB-ES/roberta-base-bne', vocab_size=50262, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'sep_token': '</s>', 'pad_token': '<pad>', 'cls_token': '<s>', 'mask_token': '<mask>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	1: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	3: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	4: AddedToken("<mask>", rstrip=False, lstrip=True, single_word=False, normalized=True, special=True),
+}
+)
+2025-06-20 20:41:01,771 - hateSpeechDetector - INFO - Modelo cargado exitosamente desde modelo_guardado_roberta.
+2025-06-20 20:41:08,870 - hateSpeechDetector - INFO - Entrenamiento completado exitosamente.
+2025-06-20 20:41:11,061 - hateSpeechDetector - INFO - Reporte de clasificaci�n del modelo bert:
+               precision    recall  f1-score   support
+
+Discurso Odio       0.58      0.55      0.57       138
+      No Odio       0.93      0.94      0.93       862
+
+     accuracy                           0.88      1000
+    macro avg       0.75      0.74      0.75      1000
+ weighted avg       0.88      0.88      0.88      1000
+
+2025-06-20 20:41:11,061 - hateSpeechDetector - INFO - Creando la matriz de confusi�n...
+2025-06-20 20:41:11,731 - hateSpeechDetector - INFO - Modelo guardado en modelo_guardado_bert
+2025-06-20 20:41:11,732 - hateSpeechDetector - INFO - Metadatos guardados en modelo_guardado_bert/metadatos.pkl
+2025-06-20 20:41:11,732 - hateSpeechDetector - INFO - Entrenamiento del modelo bert completado y guardado exitosamente.
+2025-06-20 20:41:11,740 - hateSpeechDetector - INFO - Modelo bert entrenado
+2025-06-20 20:41:12,824 - hateSpeechDetector - INFO - El texto ingresado es : Ellos arruinan nuestra cultura y deber�an ser eliminados de la sociedad.
+2025-06-20 20:41:12,826 - hateSpeechDetector - ERROR - Error al realizar la inferencia: 'list' object has no attribute 'to'
+2025-06-20 20:43:32,227 - hateSpeechDetector - INFO - Iniciando el entrenamiento del modelo electra...
+2025-06-20 20:43:32,227 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo ELECTRA Base en espa�ol
+2025-06-20 20:43:32,227 - hateSpeechDetector - INFO - Ruta del modelo: 	 google/electra-base-discriminator
+2025-06-20 20:43:32,227 - hateSpeechDetector - INFO - Cargando datos desde ./hascosva_2022_modificado.csv...
+2025-06-20 20:43:32,254 - hateSpeechDetector - INFO - Dataset cargado con 4000 muestras, 2 clases.
+2025-06-20 20:43:32,254 - hateSpeechDetector - INFO - Clases: ['Discurso Odio' 'No Odio']
+2025-06-20 20:43:32,254 - hateSpeechDetector - INFO - Dividiendo el dataset para el conjunto de entrenamiento...
+2025-06-20 20:43:32,257 - hateSpeechDetector - INFO - Dataset dividido en 3000 muestras para entrenamiento y 1000 para prueba.
+2025-06-20 20:43:32,257 - hateSpeechDetector - INFO - Codificando etiquetas...
+2025-06-20 20:43:32,258 - hateSpeechDetector - INFO - Mapeo de etiquetas: ['Discurso Odio' 'No Odio']
+2025-06-20 20:43:32,259 - hateSpeechDetector - INFO - Etiquetas codificadas: 2 clases en entrenamiento, 2 clases en prueba.
+2025-06-20 20:43:32,259 - hateSpeechDetector - INFO - Preparando el tokenizador...
+2025-06-20 20:43:32,259 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 20:43:32,259 - hateSpeechDetector - INFO - Configurando ElectraTokenizer...
+2025-06-20 20:43:34,420 - hateSpeechDetector - INFO - Tokenizador configurado - ElectraTokenizerFast(name_or_path='google/electra-base-discriminator', vocab_size=30522, model_max_length=512, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	100: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	101: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	102: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	103: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 20:43:34,420 - hateSpeechDetector - INFO - Tokenizador configurado - ElectraTokenizerFast(name_or_path='google/electra-base-discriminator', vocab_size=30522, model_max_length=512, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	100: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	101: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	102: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	103: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 20:43:34,420 - hateSpeechDetector - INFO - Tokenizando el conjunto de entrenamiento...
+2025-06-20 20:43:34,530 - hateSpeechDetector - INFO - Tokenizando el conjunto de prueba...
+2025-06-20 20:43:34,563 - hateSpeechDetector - INFO - Creando datasets personalizados...
+2025-06-20 20:43:34,563 - hateSpeechDetector - INFO - Dataset de entrenamiento preparado con 3000 muestras.
+2025-06-20 20:43:34,563 - hateSpeechDetector - INFO - Dataset de prueba preparado con 1000 muestras.
+2025-06-20 20:43:34,563 - hateSpeechDetector - INFO - Definiendo el modelo...
+2025-06-20 20:44:01,807 - hateSpeechDetector - INFO - El texto ingresado es : chingau no funciona esto
+2025-06-20 20:44:01,808 - hateSpeechDetector - ERROR - Error al realizar la inferencia: 'list' object has no attribute 'to'
+2025-06-20 20:44:24,488 - hateSpeechDetector - INFO - Configurando los argumentos de entrenamiento del electra...
+2025-06-20 20:44:24,777 - hateSpeechDetector - INFO - Comenzando el entrenamiento del modelo...
+2025-06-20 20:45:35,102 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo BERT Base en espa�ol
+2025-06-20 20:45:35,103 - hateSpeechDetector - INFO - Ruta del modelo: 	 dccuchile/bert-base-spanish-wwm-cased
+2025-06-20 20:45:35,110 - hateSpeechDetector - INFO - Cargando el modelo entrenado el 2025-06-20T20:41:11.731826...
+2025-06-20 20:45:35,116 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 20:45:35,116 - hateSpeechDetector - INFO - Configurando BertTokenizer...
+2025-06-20 20:45:35,560 - hateSpeechDetector - INFO - Tokenizador configurado - BertTokenizer(name_or_path='dccuchile/bert-base-spanish-wwm-cased', vocab_size=31002, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=True, added_tokens_decoder={
+	0: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	3: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	4: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	5: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 20:45:35,664 - hateSpeechDetector - INFO - Modelo cargado exitosamente desde modelo_guardado_bert.
+2025-06-20 20:45:54,807 - hateSpeechDetector - INFO - El texto ingresado es : chingau la gordis no quiere comer ramen
+2025-06-20 20:47:50,992 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo BERT Base en espa�ol
+2025-06-20 20:47:50,993 - hateSpeechDetector - INFO - Ruta del modelo: 	 dccuchile/bert-base-spanish-wwm-cased
+2025-06-20 20:47:50,993 - hateSpeechDetector - INFO - Cargando el modelo entrenado el 2025-06-20T20:41:11.731826...
+2025-06-20 20:47:50,994 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 20:47:50,994 - hateSpeechDetector - INFO - Configurando BertTokenizer...
+2025-06-20 20:49:11,482 - hateSpeechDetector - INFO - Tokenizador configurado - BertTokenizer(name_or_path='dccuchile/bert-base-spanish-wwm-cased', vocab_size=31002, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=True, added_tokens_decoder={
+	0: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	3: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	4: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	5: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 20:49:11,588 - hateSpeechDetector - INFO - Modelo cargado exitosamente desde modelo_guardado_bert.
+2025-06-20 20:49:22,051 - hateSpeechDetector - INFO - Entrenamiento completado exitosamente.
+2025-06-20 20:49:25,916 - hateSpeechDetector - INFO - Reporte de clasificaci�n del modelo electra:
+               precision    recall  f1-score   support
+
+Discurso Odio       0.72      0.22      0.34       138
+      No Odio       0.89      0.99      0.93       862
+
+     accuracy                           0.88      1000
+    macro avg       0.80      0.61      0.64      1000
+ weighted avg       0.87      0.88      0.85      1000
+
+2025-06-20 20:49:25,916 - hateSpeechDetector - INFO - Creando la matriz de confusi�n...
+2025-06-20 20:49:26,526 - hateSpeechDetector - INFO - Modelo guardado en modelo_guardado_electra
+2025-06-20 20:49:26,527 - hateSpeechDetector - INFO - Metadatos guardados en modelo_guardado_electra/metadatos.pkl
+2025-06-20 20:49:26,527 - hateSpeechDetector - INFO - Entrenamiento del modelo electra completado y guardado exitosamente.
+2025-06-20 20:49:26,594 - hateSpeechDetector - INFO - Modelo electra entrenado
+2025-06-20 20:49:53,136 - hateSpeechDetector - INFO - El texto ingresado es : chingau, la gordis no quiere ir a comer birriamen
+2025-06-20 20:52:48,096 - hateSpeechDetector - INFO - Iniciando el entrenamiento del modelo roberta...
+2025-06-20 20:52:48,096 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo RoBERTa Base en espa�ol
+2025-06-20 20:52:48,096 - hateSpeechDetector - INFO - Ruta del modelo: 	 PlanTL-GOB-ES/roberta-base-bne
+2025-06-20 20:52:48,096 - hateSpeechDetector - INFO - Cargando datos desde ./hascosva_2022_modificado.csv...
+2025-06-20 20:52:48,129 - hateSpeechDetector - INFO - Dataset cargado con 4000 muestras, 2 clases.
+2025-06-20 20:52:48,129 - hateSpeechDetector - INFO - Clases: ['Discurso Odio' 'No Odio']
+2025-06-20 20:52:48,129 - hateSpeechDetector - INFO - Dividiendo el dataset para el conjunto de entrenamiento...
+2025-06-20 20:52:48,132 - hateSpeechDetector - INFO - Dataset dividido en 3000 muestras para entrenamiento y 1000 para prueba.
+2025-06-20 20:52:48,132 - hateSpeechDetector - INFO - Codificando etiquetas...
+2025-06-20 20:52:48,134 - hateSpeechDetector - INFO - Mapeo de etiquetas: ['Discurso Odio' 'No Odio']
+2025-06-20 20:52:48,134 - hateSpeechDetector - INFO - Etiquetas codificadas: 2 clases en entrenamiento, 2 clases en prueba.
+2025-06-20 20:52:48,134 - hateSpeechDetector - INFO - Preparando el tokenizador...
+2025-06-20 20:52:48,134 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 20:52:48,134 - hateSpeechDetector - INFO - Configurando RobertaTokenizer...
+2025-06-20 20:52:58,556 - hateSpeechDetector - INFO - Tokenizador configurado - RobertaTokenizer(name_or_path='PlanTL-GOB-ES/roberta-base-bne', vocab_size=50262, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'sep_token': '</s>', 'pad_token': '<pad>', 'cls_token': '<s>', 'mask_token': '<mask>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	1: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	3: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	4: AddedToken("<mask>", rstrip=False, lstrip=True, single_word=False, normalized=True, special=True),
+}
+)
+2025-06-20 20:52:58,557 - hateSpeechDetector - INFO - Tokenizador configurado - RobertaTokenizer(name_or_path='PlanTL-GOB-ES/roberta-base-bne', vocab_size=50262, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'sep_token': '</s>', 'pad_token': '<pad>', 'cls_token': '<s>', 'mask_token': '<mask>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	1: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	3: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	4: AddedToken("<mask>", rstrip=False, lstrip=True, single_word=False, normalized=True, special=True),
+}
+)
+2025-06-20 20:52:58,557 - hateSpeechDetector - INFO - Tokenizando el conjunto de entrenamiento...
+2025-06-20 20:52:59,680 - hateSpeechDetector - INFO - Tokenizando el conjunto de prueba...
+2025-06-20 20:52:59,999 - hateSpeechDetector - INFO - Creando datasets personalizados...
+2025-06-20 20:52:59,999 - hateSpeechDetector - INFO - Dataset de entrenamiento preparado con 3000 muestras.
+2025-06-20 20:52:59,999 - hateSpeechDetector - INFO - Dataset de prueba preparado con 1000 muestras.
+2025-06-20 20:52:59,999 - hateSpeechDetector - INFO - Definiendo el modelo...
+2025-06-20 20:53:00,899 - hateSpeechDetector - INFO - Configurando los argumentos de entrenamiento del roberta...
+2025-06-20 20:53:01,233 - hateSpeechDetector - INFO - Comenzando el entrenamiento del modelo...
+2025-06-20 20:59:39,535 - hateSpeechDetector - INFO - Entrenamiento completado exitosamente.
+2025-06-20 20:59:41,736 - hateSpeechDetector - INFO - Reporte de clasificaci�n del modelo roberta:
+               precision    recall  f1-score   support
+
+Discurso Odio       0.64      0.59      0.61       138
+      No Odio       0.93      0.95      0.94       862
+
+     accuracy                           0.90      1000
+    macro avg       0.79      0.77      0.78      1000
+ weighted avg       0.89      0.90      0.90      1000
+
+2025-06-20 20:59:41,736 - hateSpeechDetector - INFO - Creando la matriz de confusi�n...
+2025-06-20 20:59:42,506 - hateSpeechDetector - INFO - Modelo guardado en modelo_guardado_roberta
+2025-06-20 20:59:42,507 - hateSpeechDetector - INFO - Metadatos guardados en modelo_guardado_roberta/metadatos.pkl
+2025-06-20 20:59:42,507 - hateSpeechDetector - INFO - Entrenamiento del modelo roberta completado y guardado exitosamente.
+2025-06-20 20:59:42,518 - hateSpeechDetector - INFO - Modelo roberta entrenado
+2025-06-20 21:05:12,046 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo RoBERTa Base en espa�ol
+2025-06-20 21:05:12,046 - hateSpeechDetector - INFO - Ruta del modelo: 	 PlanTL-GOB-ES/roberta-base-bne
+2025-06-20 21:05:12,054 - hateSpeechDetector - INFO - Cargando el modelo entrenado el 2025-06-20T20:59:42.507528...
+2025-06-20 21:05:12,055 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 21:05:12,055 - hateSpeechDetector - INFO - Configurando RobertaTokenizer...
+2025-06-20 21:05:12,749 - hateSpeechDetector - INFO - Tokenizador configurado - RobertaTokenizer(name_or_path='PlanTL-GOB-ES/roberta-base-bne', vocab_size=50262, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'sep_token': '</s>', 'pad_token': '<pad>', 'cls_token': '<s>', 'mask_token': '<mask>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	1: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	3: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	4: AddedToken("<mask>", rstrip=False, lstrip=True, single_word=False, normalized=True, special=True),
+}
+)
+2025-06-20 21:05:12,813 - hateSpeechDetector - INFO - Modelo cargado exitosamente desde modelo_guardado_roberta.
+2025-06-20 21:05:23,737 - hateSpeechDetector - INFO - El texto ingresado es : la gordis no quiere ir al birriamen
+2025-06-20 21:05:24,379 - hateSpeechDetector - ERROR - Error al realizar la inferencia: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
+2025-06-20 21:06:08,799 - hateSpeechDetector - INFO - El texto ingresado es : la gordis no quiere ir al birriamen
+2025-06-20 21:06:08,816 - hateSpeechDetector - ERROR - Error al realizar la inferencia: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
+2025-06-20 21:08:29,571 - hateSpeechDetector - INFO - Programa finalizado por el usuario.
+2025-06-20 21:08:55,408 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo RoBERTa Base en espa�ol
+2025-06-20 21:08:55,409 - hateSpeechDetector - INFO - Ruta del modelo: 	 PlanTL-GOB-ES/roberta-base-bne
+2025-06-20 21:08:55,409 - hateSpeechDetector - INFO - Cargando el modelo entrenado el 2025-06-20T20:59:42.507528...
+2025-06-20 21:08:55,409 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 21:08:55,409 - hateSpeechDetector - INFO - Configurando RobertaTokenizer...
+2025-06-20 21:08:55,928 - hateSpeechDetector - INFO - Tokenizador configurado - RobertaTokenizer(name_or_path='PlanTL-GOB-ES/roberta-base-bne', vocab_size=50262, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'sep_token': '</s>', 'pad_token': '<pad>', 'cls_token': '<s>', 'mask_token': '<mask>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	1: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	3: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	4: AddedToken("<mask>", rstrip=False, lstrip=True, single_word=False, normalized=True, special=True),
+}
+)
+2025-06-20 21:08:55,986 - hateSpeechDetector - INFO - Modelo cargado exitosamente desde modelo_guardado_roberta.
+2025-06-20 21:09:03,785 - hateSpeechDetector - INFO - El texto ingresado es : la gordis me cae bien
+2025-06-20 21:09:04,117 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:09:04,340 - hateSpeechDetector - ERROR - Error al realizar la inferencia: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
+2025-06-20 21:15:35,138 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo RoBERTa Base en espa�ol
+2025-06-20 21:15:35,138 - hateSpeechDetector - INFO - Ruta del modelo: 	 PlanTL-GOB-ES/roberta-base-bne
+2025-06-20 21:15:35,138 - hateSpeechDetector - INFO - Cargando el modelo entrenado el 2025-06-20T20:59:42.507528...
+2025-06-20 21:15:35,139 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 21:15:35,139 - hateSpeechDetector - INFO - Configurando RobertaTokenizer...
+2025-06-20 21:15:35,629 - hateSpeechDetector - INFO - Tokenizador configurado - RobertaTokenizer(name_or_path='PlanTL-GOB-ES/roberta-base-bne', vocab_size=50262, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'sep_token': '</s>', 'pad_token': '<pad>', 'cls_token': '<s>', 'mask_token': '<mask>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	1: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	3: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	4: AddedToken("<mask>", rstrip=False, lstrip=True, single_word=False, normalized=True, special=True),
+}
+)
+2025-06-20 21:15:35,683 - hateSpeechDetector - INFO - Modelo cargado exitosamente desde modelo_guardado_roberta.
+2025-06-20 21:15:42,878 - hateSpeechDetector - INFO - El texto ingresado es : la gordis me cae bien
+2025-06-20 21:15:43,201 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:15:43,416 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:19:20,621 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo RoBERTa Base en espa�ol
+2025-06-20 21:19:20,621 - hateSpeechDetector - INFO - Ruta del modelo: 	 PlanTL-GOB-ES/roberta-base-bne
+2025-06-20 21:19:20,622 - hateSpeechDetector - INFO - Cargando el modelo entrenado el 2025-06-20T20:59:42.507528...
+2025-06-20 21:19:20,622 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 21:19:20,622 - hateSpeechDetector - INFO - Configurando RobertaTokenizer...
+2025-06-20 21:19:41,106 - hateSpeechDetector - INFO - Tokenizador configurado - RobertaTokenizer(name_or_path='PlanTL-GOB-ES/roberta-base-bne', vocab_size=50262, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'sep_token': '</s>', 'pad_token': '<pad>', 'cls_token': '<s>', 'mask_token': '<mask>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	1: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	3: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	4: AddedToken("<mask>", rstrip=False, lstrip=True, single_word=False, normalized=True, special=True),
+}
+)
+2025-06-20 21:19:41,159 - hateSpeechDetector - INFO - Modelo cargado exitosamente desde modelo_guardado_roberta.
+2025-06-20 21:19:58,343 - hateSpeechDetector - INFO - El texto ingresado es : la gordis me cae bien
+2025-06-20 21:19:58,687 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:19:58,923 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:20:28,309 - hateSpeechDetector - INFO - El texto ingresado es : Ellos arruinan nuestra cultura y deber�an ser eliminados de la sociedad.
+2025-06-20 21:20:28,312 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:20:28,324 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:22:00,532 - hateSpeechDetector - INFO - El texto ingresado es : fjndsajbvfhfdvhbsfdhjvbhjasbdvsfdv
+2025-06-20 21:22:00,534 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:22:00,581 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:22:11,633 - hateSpeechDetector - INFO - El texto ingresado es : amlo es un pendejo
+2025-06-20 21:22:11,636 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:22:11,676 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:22:39,383 - hateSpeechDetector - INFO - El texto ingresado es : No quiero que personas como ellos vivan cerca de mi familia. No se les puede confiar nada.
+2025-06-20 21:22:39,385 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:22:39,398 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:23:06,070 - hateSpeechDetector - INFO - El texto ingresado es : Esa religi�n es una amenaza, todos sus seguidores son fan�ticos peligrosos.
+2025-06-20 21:23:06,072 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:23:06,103 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:24:28,286 - hateSpeechDetector - INFO - El texto ingresado es : No entiendo c�mo esa gente puede llamarse seres humanos. Son un peligro para la sociedad.
+2025-06-20 21:24:28,289 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:24:28,330 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:25:34,788 - hateSpeechDetector - INFO - Iniciando el entrenamiento del modelo bert...
+2025-06-20 21:25:34,788 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo BERT Base en espa�ol
+2025-06-20 21:25:34,788 - hateSpeechDetector - INFO - Ruta del modelo: 	 dccuchile/bert-base-spanish-wwm-cased
+2025-06-20 21:25:34,788 - hateSpeechDetector - INFO - Cargando datos desde ./hascosva_2022_modificado.csv...
+2025-06-20 21:25:34,823 - hateSpeechDetector - INFO - Dataset cargado con 4000 muestras, 2 clases.
+2025-06-20 21:25:34,823 - hateSpeechDetector - INFO - Clases: ['Discurso Odio' 'No Odio']
+2025-06-20 21:25:34,823 - hateSpeechDetector - INFO - Dividiendo el dataset para el conjunto de entrenamiento...
+2025-06-20 21:25:34,827 - hateSpeechDetector - INFO - Dataset dividido en 3000 muestras para entrenamiento y 1000 para prueba.
+2025-06-20 21:25:34,827 - hateSpeechDetector - INFO - Codificando etiquetas...
+2025-06-20 21:25:34,828 - hateSpeechDetector - INFO - Mapeo de etiquetas: ['Discurso Odio' 'No Odio']
+2025-06-20 21:25:34,828 - hateSpeechDetector - INFO - Etiquetas codificadas: 2 clases en entrenamiento, 2 clases en prueba.
+2025-06-20 21:25:34,829 - hateSpeechDetector - INFO - Preparando el tokenizador...
+2025-06-20 21:25:34,829 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 21:25:34,829 - hateSpeechDetector - INFO - Configurando BertTokenizer...
+2025-06-20 21:25:35,315 - hateSpeechDetector - INFO - Tokenizador configurado - BertTokenizer(name_or_path='dccuchile/bert-base-spanish-wwm-cased', vocab_size=31002, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=True, added_tokens_decoder={
+	0: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	3: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	4: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	5: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 21:25:35,315 - hateSpeechDetector - INFO - Tokenizador configurado - BertTokenizer(name_or_path='dccuchile/bert-base-spanish-wwm-cased', vocab_size=31002, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=True, added_tokens_decoder={
+	0: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	3: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	4: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	5: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 21:25:35,315 - hateSpeechDetector - INFO - Tokenizando el conjunto de entrenamiento...
+2025-06-20 21:25:36,451 - hateSpeechDetector - INFO - Tokenizando el conjunto de prueba...
+2025-06-20 21:25:36,832 - hateSpeechDetector - INFO - Creando datasets personalizados...
+2025-06-20 21:25:36,832 - hateSpeechDetector - INFO - Dataset de entrenamiento preparado con 3000 muestras.
+2025-06-20 21:25:36,832 - hateSpeechDetector - INFO - Dataset de prueba preparado con 1000 muestras.
+2025-06-20 21:25:36,832 - hateSpeechDetector - INFO - Definiendo el modelo...
+2025-06-20 21:25:37,683 - hateSpeechDetector - INFO - Configurando los argumentos de entrenamiento del bert...
+2025-06-20 21:25:38,081 - hateSpeechDetector - INFO - Comenzando el entrenamiento del modelo...
+2025-06-20 21:26:23,121 - hateSpeechDetector - INFO - El texto ingresado es : Joto si no dices hora @Jorge S�nchez
+2025-06-20 21:26:23,125 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:26:23,138 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:27:27,426 - hateSpeechDetector - INFO - El texto ingresado es : jajaja ojal� pelen al kakas o se muera de una sobredosis
+2025-06-20 21:27:27,430 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:27:27,442 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:27:48,936 - hateSpeechDetector - INFO - El texto ingresado es : 
+2025-06-20 21:27:57,741 - hateSpeechDetector - INFO - El texto ingresado es : 
+2025-06-20 21:28:14,184 - hateSpeechDetector - INFO - El texto ingresado es : La izquierda no es la que genera odio, es la polarizaci�n. Si no nos apoyamos mutuamente �En qu� se va a convertir este pa�s?
+2025-06-20 21:28:14,188 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:28:14,202 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:28:28,635 - hateSpeechDetector - INFO - El texto ingresado es : Repugnante y asqueroso campa�a pol�tica con estas tragedias.
+2025-06-20 21:28:28,638 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:28:28,654 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:28:47,015 - hateSpeechDetector - INFO - El texto ingresado es : los que m�s est�n haciendo campa�a pol�tica son sus aliados. Por cierto, mire su perfil para asegurarme de que ejerce lo que predica y debo reconocer que lo hace pero tambi�n me parece curioso su trauma con los gays
+2025-06-20 21:28:47,019 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:28:47,033 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:29:08,820 - hateSpeechDetector - INFO - El texto ingresado es : Lo mismo pasa al rev�s con los petristas, se la pasan burl�ndose de la sexualidad de polo polo y su tez de piel pero cuando se burlan de francia M�rquez y del presi come trabas ah� si se enojan y salen a decir que esos son discursos de odio. Adem�s seamos sinceros si le hubiera pasado lo mismo que pas� ayer a un candidato del pacto hist�rico seguro estar�an volviendo mierda el pa�s y tambi�n hay que decir que los uribistas tambi�n estar�an cagados de la risa as� como est�n los petristas cagados de la risa en estos momentos, as� que m�tanse su doble moralidad por el culito, saludos.
+2025-06-20 21:29:08,824 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:29:08,838 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:29:37,127 - hateSpeechDetector - INFO - El texto ingresado es : me tienes hasta la coronilla
+2025-06-20 21:29:37,131 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:29:37,145 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:31:01,185 - hateSpeechDetector - INFO - El texto ingresado es : cielos debo haberme equivocado de sub, pense que aqui era de opiniones polemicasO quien sabe tal vez la RAE cambie el significado de "polemico" mientras yo dormia, esos loquillos de la RAE de mi se van a enterar \U0001f47f\U0001f608
+2025-06-20 21:31:01,191 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:31:01,209 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:31:23,081 - hateSpeechDetector - INFO - El texto ingresado es : No existe un grupo feminista que hable del 8M mas que los incel.
+2025-06-20 21:31:23,084 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:31:23,100 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:33:46,198 - hateSpeechDetector - INFO - El texto ingresado es : El problema como con todas las ideolog�as es que las llevan al extremo y por eso dejan de ser tomadas en serio. Pasa con cualquier cosa feminismo religi�n f�tbol etc. Dir�a Bertrand Rusell: " el fanatismo es EL mal de la humanidad"
+2025-06-20 21:33:46,202 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:33:46,215 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:34:19,170 - hateSpeechDetector - INFO - Entrenamiento completado exitosamente.
+2025-06-20 21:34:21,973 - hateSpeechDetector - INFO - Reporte de clasificaci�n del modelo bert:
+               precision    recall  f1-score   support
+
+Discurso Odio       0.67      0.45      0.54       138
+      No Odio       0.92      0.96      0.94       862
+
+     accuracy                           0.89      1000
+    macro avg       0.79      0.71      0.74      1000
+ weighted avg       0.88      0.89      0.88      1000
+
+2025-06-20 21:34:21,973 - hateSpeechDetector - INFO - Creando la matriz de confusi�n...
+2025-06-20 21:34:22,715 - hateSpeechDetector - INFO - Modelo guardado en modelo_guardado_bert
+2025-06-20 21:34:22,716 - hateSpeechDetector - INFO - Metadatos guardados en modelo_guardado_bert/metadatos.pkl
+2025-06-20 21:34:22,716 - hateSpeechDetector - INFO - Entrenamiento del modelo bert completado y guardado exitosamente.
+2025-06-20 21:34:22,725 - hateSpeechDetector - INFO - Modelo bert entrenado
+2025-06-20 21:34:36,609 - hateSpeechDetector - INFO - El texto ingresado es : Los de ese grupo no tienen valores. Deber�an mantenerlos alejados de los ni�os.
+2025-06-20 21:34:36,611 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:34:36,624 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:34:49,238 - hateSpeechDetector - INFO - El texto ingresado es : Siempre est�n llorando por derechos que no merecen.
+2025-06-20 21:34:49,240 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:34:49,265 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:35:00,532 - hateSpeechDetector - INFO - El texto ingresado es : No deber�an poder votar. No tienen la inteligencia para tomar decisiones.
+2025-06-20 21:35:00,534 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:35:00,575 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:35:59,857 - hateSpeechDetector - INFO - El texto ingresado es : sin derechos humanos para esos que lastimaron al policia, se merecen la muerte
+2025-06-20 21:35:59,860 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:35:59,900 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:36:44,256 - hateSpeechDetector - INFO - El texto ingresado es : veneco hdp
+2025-06-20 21:36:44,259 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:36:44,312 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:37:06,443 - hateSpeechDetector - INFO - El texto ingresado es : veneco es el que no sabe hablar y solo se preocupa por su familia
+2025-06-20 21:37:06,445 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:37:06,493 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:37:26,837 - hateSpeechDetector - INFO - El texto ingresado es : q hdp son los que lloran
+2025-06-20 21:37:26,840 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-20 21:37:26,885 - hateSpeechDetector - INFO - Inferencia realizada con �xito para 1 textos.
+2025-06-20 21:38:15,891 - hateSpeechDetector - INFO - Iniciando el entrenamiento del modelo electra...
+2025-06-20 21:38:15,891 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo ELECTRA Base en espa�ol
+2025-06-20 21:38:15,891 - hateSpeechDetector - INFO - Ruta del modelo: 	 google/electra-base-discriminator
+2025-06-20 21:38:15,891 - hateSpeechDetector - INFO - Cargando datos desde ./hascosva_2022_modificado.csv...
+2025-06-20 21:38:15,917 - hateSpeechDetector - INFO - Dataset cargado con 4000 muestras, 2 clases.
+2025-06-20 21:38:15,918 - hateSpeechDetector - INFO - Clases: ['Discurso Odio' 'No Odio']
+2025-06-20 21:38:15,918 - hateSpeechDetector - INFO - Dividiendo el dataset para el conjunto de entrenamiento...
+2025-06-20 21:38:15,921 - hateSpeechDetector - INFO - Dataset dividido en 3000 muestras para entrenamiento y 1000 para prueba.
+2025-06-20 21:38:15,921 - hateSpeechDetector - INFO - Codificando etiquetas...
+2025-06-20 21:38:15,922 - hateSpeechDetector - INFO - Mapeo de etiquetas: ['Discurso Odio' 'No Odio']
+2025-06-20 21:38:15,922 - hateSpeechDetector - INFO - Etiquetas codificadas: 2 clases en entrenamiento, 2 clases en prueba.
+2025-06-20 21:38:15,922 - hateSpeechDetector - INFO - Preparando el tokenizador...
+2025-06-20 21:38:15,922 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-20 21:38:15,922 - hateSpeechDetector - INFO - Configurando ElectraTokenizer...
+2025-06-20 21:38:16,383 - hateSpeechDetector - INFO - Tokenizador configurado - ElectraTokenizerFast(name_or_path='google/electra-base-discriminator', vocab_size=30522, model_max_length=512, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	100: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	101: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	102: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	103: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 21:38:16,384 - hateSpeechDetector - INFO - Tokenizador configurado - ElectraTokenizerFast(name_or_path='google/electra-base-discriminator', vocab_size=30522, model_max_length=512, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	100: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	101: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	102: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	103: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+2025-06-20 21:38:16,384 - hateSpeechDetector - INFO - Tokenizando el conjunto de entrenamiento...
+2025-06-20 21:38:16,516 - hateSpeechDetector - INFO - Tokenizando el conjunto de prueba...
+2025-06-20 21:38:16,554 - hateSpeechDetector - INFO - Creando datasets personalizados...
+2025-06-20 21:38:16,555 - hateSpeechDetector - INFO - Dataset de entrenamiento preparado con 3000 muestras.
+2025-06-20 21:38:16,555 - hateSpeechDetector - INFO - Dataset de prueba preparado con 1000 muestras.
+2025-06-20 21:38:16,555 - hateSpeechDetector - INFO - Definiendo el modelo...
+2025-06-20 21:38:17,684 - hateSpeechDetector - INFO - Configurando los argumentos de entrenamiento del electra...
+2025-06-20 21:38:17,886 - hateSpeechDetector - INFO - Comenzando el entrenamiento del modelo...
+2025-06-20 21:48:09,306 - hateSpeechDetector - INFO - Entrenamiento completado exitosamente.
+2025-06-20 21:48:14,197 - hateSpeechDetector - INFO - Reporte de clasificaci�n del modelo electra:
+               precision    recall  f1-score   support
+
+Discurso Odio       0.65      0.40      0.50       138
+      No Odio       0.91      0.97      0.94       862
+
+     accuracy                           0.89      1000
+    macro avg       0.78      0.68      0.72      1000
+ weighted avg       0.87      0.89      0.88      1000
+
+2025-06-20 21:48:14,197 - hateSpeechDetector - INFO - Creando la matriz de confusi�n...
+2025-06-20 21:48:14,798 - hateSpeechDetector - INFO - Modelo guardado en modelo_guardado_electra
+2025-06-20 21:48:14,799 - hateSpeechDetector - INFO - Metadatos guardados en modelo_guardado_electra/metadatos.pkl
+2025-06-20 21:48:14,799 - hateSpeechDetector - INFO - Entrenamiento del modelo electra completado y guardado exitosamente.
+2025-06-20 21:48:14,893 - hateSpeechDetector - INFO - Modelo electra entrenado
+2025-06-21 00:04:38,914 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo RoBERTa Base en español
+2025-06-21 00:04:38,914 - hateSpeechDetector - INFO - Ruta del modelo: 	 PlanTL-GOB-ES/roberta-base-bne
+2025-06-21 00:04:38,915 - hateSpeechDetector - INFO - Cargando el modelo entrenado el 2025-06-20T20:59:42.507528...
+2025-06-21 00:04:38,920 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-21 00:04:38,920 - hateSpeechDetector - INFO - Configurando RobertaTokenizer...
+2025-06-21 00:09:26,745 - hateSpeechDetector - INFO - Modelo seleccionado: 	 Modelo RoBERTa Base en español
+2025-06-21 00:09:26,746 - hateSpeechDetector - INFO - Ruta del modelo: 	 PlanTL-GOB-ES/roberta-base-bne
+2025-06-21 00:09:26,747 - hateSpeechDetector - INFO - Cargando el modelo entrenado el 2025-06-20T20:59:42.507528...
+2025-06-21 00:09:26,750 - hateSpeechDetector - INFO - Configurando el tokenizador...
+2025-06-21 00:09:26,750 - hateSpeechDetector - INFO - Configurando RobertaTokenizer...
+2025-06-21 00:10:47,565 - hateSpeechDetector - INFO - Tokenizador configurado - RobertaTokenizer(name_or_path='PlanTL-GOB-ES/roberta-base-bne', vocab_size=50262, model_max_length=512, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>', 'sep_token': '</s>', 'pad_token': '<pad>', 'cls_token': '<s>', 'mask_token': '<mask>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	1: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	2: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	3: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	4: AddedToken("<mask>", rstrip=False, lstrip=True, single_word=False, normalized=True, special=True),
+}
+)
+2025-06-21 00:10:47,700 - hateSpeechDetector - INFO - Modelo cargado exitosamente desde modelo_guardado_roberta.
+2025-06-21 00:11:45,280 - hateSpeechDetector - INFO - El texto ingresado es : Que está haciendo ese wey?m
+2025-06-21 00:11:45,300 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-21 00:11:45,515 - hateSpeechDetector - INFO - Inferencia realizada con éxito para 1 textos.
+2025-06-21 00:14:29,172 - hateSpeechDetector - INFO - El texto ingresado es : No quiero hablar con él
+2025-06-21 00:14:29,175 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-21 00:14:29,262 - hateSpeechDetector - INFO - Inferencia realizada con éxito para 1 textos.
+2025-06-21 00:15:03,119 - hateSpeechDetector - INFO - El texto ingresado es : Maldito veneco, merecen sufrir por lo que son y lo que hacen.
+2025-06-21 00:15:03,135 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-21 00:15:03,232 - hateSpeechDetector - INFO - Inferencia realizada con éxito para 1 textos.
+2025-06-21 00:15:15,095 - hateSpeechDetector - INFO - El texto ingresado es : Maldito veneco
+2025-06-21 00:15:15,108 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-21 00:15:15,220 - hateSpeechDetector - INFO - Inferencia realizada con éxito para 1 textos.
+2025-06-21 00:15:24,783 - hateSpeechDetector - INFO - El texto ingresado es : Maldito calor, me hace sufrir
+2025-06-21 00:15:24,793 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-21 00:15:24,921 - hateSpeechDetector - INFO - Inferencia realizada con éxito para 1 textos.
+2025-06-21 00:15:38,751 - hateSpeechDetector - INFO - El texto ingresado es : Es un veneco buena onda, me cae muy bien
+2025-06-21 00:15:38,761 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-21 00:15:38,869 - hateSpeechDetector - INFO - Inferencia realizada con éxito para 1 textos.
+2025-06-21 00:15:49,623 - hateSpeechDetector - INFO - El texto ingresado es : Me da igual lo que le pase
+2025-06-21 00:15:49,635 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-21 00:15:49,754 - hateSpeechDetector - INFO - Inferencia realizada con éxito para 1 textos.
+2025-06-21 00:16:07,815 - hateSpeechDetector - INFO - El texto ingresado es : No lo soporto ver llorar, me pone triste
+2025-06-21 00:16:07,828 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-21 00:16:07,973 - hateSpeechDetector - INFO - Inferencia realizada con éxito para 1 textos.
+2025-06-21 00:16:14,911 - hateSpeechDetector - INFO - El texto ingresado es : NO lo soporto
+2025-06-21 00:16:14,929 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-21 00:16:15,036 - hateSpeechDetector - INFO - Inferencia realizada con éxito para 1 textos.
+2025-06-21 00:16:24,983 - hateSpeechDetector - INFO - El texto ingresado es : Es muy antipático
+2025-06-21 00:16:24,991 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-21 00:16:25,111 - hateSpeechDetector - INFO - Inferencia realizada con éxito para 1 textos.
+2025-06-21 00:16:47,399 - hateSpeechDetector - INFO - El texto ingresado es : Son una plaga que hay que eliminar, esas suciaarachas
+2025-06-21 00:16:47,412 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-21 00:16:47,537 - hateSpeechDetector - INFO - Inferencia realizada con éxito para 1 textos.
+2025-06-21 00:16:57,502 - hateSpeechDetector - INFO - El texto ingresado es : SOn una plaga
+2025-06-21 00:16:57,514 - hateSpeechDetector - INFO - Realizando inferencia para 1 ...
+2025-06-21 00:16:57,626 - hateSpeechDetector - INFO - Inferencia realizada con éxito para 1 textos.

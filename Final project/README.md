@@ -1,8 +1,112 @@
 
+# Hate Speech Detection - Comparative Study
+
+## 📋 Project Overview
+
+This project presents a comprehensive comparative study of hate speech detection methods using the HASCOSVA 2022 Spanish dataset. The study implements a two-phase approach comparing traditional machine learning techniques with state-of-the-art transformer models for Spanish hate speech detection.
+
+### 🎯 Objectives
+- Compare traditional ML approaches vs. transformer-based models for Spanish hate speech detection
+- Analyze the impact of different text normalization strategies on model performance
+- Establish baseline performance metrics for Spanish hate speech detection
+- Provide reproducible experimentation framework with systematic evaluation
+
+## 📊 Dataset Overview
+
 | Class | Label | Description | Distribution |
 |-------|-------|-------------|--------------|
 | 0 | "No Odio" (No Hate) | Content without hate speech | 86.2% (3,448 samples) |
 | 1 | "Discurso Odio" (Hate Speech) | Content containing hate speech | 13.8% (552 samples) |
+
+**Key Challenge**: Significant class imbalance requiring careful evaluation using F1-macro metrics.
+
+## 🔧 Project Structure
+
+```
+Final project/
+│
+├── Data/                               # Dataset files
+│   ├── hascosva_2022.csv              # Original dataset
+│   └── normalizado/                    # Preprocessed datasets
+│       ├── HateSpeech_Completo.csv
+│       ├── HateSpeech_Tokenizacion.csv
+│       └── ... (one per normalization strategy)
+│
+├── Fase1_MLTradicional/               # Phase 1: Traditional ML
+│   ├── hateSpeechDetector.py         # Main ML experimentation framework
+│   ├── normalizacionTexto.py         # Text preprocessing pipeline
+│   ├── resultados/                    # Experiment results
+│   └── evidencia/                     # Performance evidence
+│
+└── Fase2_LLMS/                       # Phase 2: Transformer models
+    ├── hateSpeechDetector.py         # LLM fine-tuning framework
+    ├── personalizacionDataset.py     # Custom PyTorch dataset
+    └── plotsCM/                       # Confusion matrices
+```
+
+## 🚀 Installation & Requirements
+
+### Prerequisites
+```bash
+# Install spaCy Spanish model (required)
+python -m spacy download es_core_news_sm
+
+# Install dependencies
+pip install pandas numpy scikit-learn
+pip install torch transformers  # For Phase 2
+pip install matplotlib seaborn  # For visualizations
+```
+
+### Hardware Requirements
+- **Phase 1**: CPU sufficient (252 experiments ~1-2 hours)
+- **Phase 2**: CUDA-compatible GPU recommended (4-6 minutes per model)
+
+## 🔬 Methodology
+
+### Phase 1: Traditional Machine Learning
+Systematic experimentation with:
+- **7 Text Normalization Strategies**: From simple tokenization to complete preprocessing pipeline
+- **4 ML Algorithms**: SVM, Logistic Regression, Random Forest, Naive Bayes  
+- **3 Vectorization Methods**: Frequency (Count), Binary, TF-IDF
+- **3 N-gram Configurations**: Unigrams, Bigrams, Trigrams
+
+**Total**: 252 experiments with 5-fold stratified cross-validation
+
+### Phase 2: Transformer Fine-tuning
+Fine-tuning Spanish pre-trained models:
+- **BERT**: `dccuchile/bert-base-spanish-wwm-cased`
+- **RoBERTa**: `PlanTL-GOB-ES/roberta-base-bne` 
+- **ELECTRA**: `google/electra-base-discriminator`
+
+## 📈 Usage
+
+### Phase 1: Traditional ML Experiments
+
+```bash
+# Run specific normalization strategy
+python Fase1_MLTradicional/hateSpeechDetector.py completo Tokenizacion
+
+# Run all normalization strategies
+python Fase1_MLTradicional/hateSpeechDetector.py completo todos
+
+# Generate preprocessing datasets
+python Fase1_MLTradicional/normalizacionTexto.py
+```
+
+### Phase 2: Transformer Fine-tuning
+
+```python
+# Interactive menu system
+python Fase2_LLMS/hateSpeechDetector.py
+
+# Menu options:
+# 1. Train new model
+# 2. Load existing model  
+# 3. Perform inference
+# 4. Model information
+```
+
+## 📊 Results & Analysis
 
 
 **[TABLE 1: Experimental Configuration Overview]**
@@ -128,4 +232,56 @@
 | Accuracy | 0.8840 | 0.8900 | +0.0060 | +0.68% |
 | Precision (Hate) | 0.6500 | 0.6100 | -0.0400 | -6.15% |
 | Recall (Hate) | 0.6200 | 0.5600 | -0.0600 | -9.68% |
+
+## 🎯 Key Findings
+
+### Phase 1 Insights
+- **SVM dominates**: Achieves best performance across all 7 normalization strategies
+- **Simple is better**: Tokenization-only normalization outperforms complex preprocessing
+- **Frequency vectorization**: CountVectorizer consistently better than TF-IDF
+- **Unigrams optimal**: Higher n-grams don't improve performance for this task
+
+### Phase 2 Insights  
+- **RoBERTa leads**: Best overall performance among Spanish transformer models
+- **Fast convergence**: All models converge within 3-4 epochs
+- **Class imbalance impact**: Lower recall on minority class (hate speech) across all models
+
+### Overall Conclusions
+- **Modest improvement**: Transformers provide +4 percentage points F1-macro improvement
+- **Cost-benefit trade-off**: Traditional ML offers 95% of transformer performance at 10% of computational cost
+- **Production considerations**: SVM model suitable for real-time applications, RoBERTa for highest accuracy
+
+## 🔍 Reproducibility
+
+### Experiment Tracking
+- All experiments use `random_state=0` for reproducibility
+- Cross-validation with `StratifiedKFold(n_splits=5)`
+- Results automatically saved to CSV files
+- Comprehensive logging to `app.log`
+
+### Model Persistence
+- **Traditional ML**: Pickle format (`modelo_{normalizacion}.pkl`)
+- **Transformers**: HuggingFace format (`modelo_guardado_{modelo}/`)
+- **Metadata**: Training parameters, class encoders, performance metrics
+
+## 📝 Citation
+
+If you use this work in your research, please cite:
+
+```bibtex
+@misc{hate_speech_detection_2024,
+  title={Comparative Study of Hate Speech Detection: Traditional ML vs Transformers for Spanish Text},
+  author={Your Name},
+  year={2024},
+  note={GitHub repository: https://github.com/GUSTAVOIVANGQ/Natural-Language-Processing/tree/main/Final%20project}
+}
+```
+
+## 📧 Contact
+
+For questions or colaborations, please contact: ggarciaq1800@alumno.ipn.mx
+
+---
+
+**Note**: This project was developed for research purposes. Please ensure responsible use of hate speech detection systems and consider ethical implications in real-world applications.
 
